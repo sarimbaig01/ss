@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bash Shell Commands Cheat Sheet</title>
+    <link rel="stylesheet" href="prism.css"> <!-- Link to your external CSS file -->
+    <script src="prism.js"></script> <!-- Adjust the path as needed -->
+    <script src="insertCode.js"></script> <!-- Link to your external JavaScript file -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+        <h1> Bash Shell Commands Cheat Sheet</h1>
+        <section class="statement">
+            <p>This quick reference provides a categorized overview of commonly used Bash commands.</p>
+
+            <p>Commands are grouped into seven functional categories: <strong>File and Directory Management</strong>,
+                <strong>Process Management</strong>, <strong>File Permissions and Ownership</strong>, <strong>Networking
+                    and Communication</strong>, <strong>Disk and System Info</strong>, <strong>Text Processing</strong>,
+                and <strong>User Management</strong>.</p>
+
+            <p>Each table lists commands with descriptions, key options, usage examples, and the underlying system calls
+                invoked when the commands are executed.</p>
+
+            <p>This classification ensures that similar commands are grouped by their core functionalities.</p>
+
+            <p>The structure enables a practical and organized reference for Bash users.</p>
+
+            <div class="bashref">
+                <summary>Quick Reference to Bash System Commands</summary>
+                <div>
+                    <h4>1. File and Directory Management</h4>
+                    <table class="ref">
+                        <tr>
+                            <th>Bash Command</th>
+                            <th>Description</th>
+                            <th>Options</th>
+                            <th>Usage Example</th>
+                            <th>System Calls (Under the Hood)</th>
+                        </tr>
+                        <tr>
+                            <td>ls</td>
+                            <td>List files in directory</td>
+                            <td>-l (long format), -a (show hidden files)</td>
+                            <td>ls -la /home</td>
+                            <td>open(), readdir()</td>
+                        </tr>
+                        <tr>
+                            <td>cd</td>
+                            <td>Change directory</td>
+                            <td>None</td>
+                            <td>cd /home/user</td>
+                            <td>chdir()</td>
+                        </tr>
+                        <tr>
+                            <td>mkdir</td>
+                            <td>Create directory</td>
+                            <td>-p (create parent directories)</td>
+                            <td>mkdir -p /home/user/new_folder</td>
+                            <td>mkdir()</td>
+                        </tr>
+                    </table>
+
+                    <h4>2. Process Management</h4>
+                    <table class="ref">
+                        <tr>
+                            <th>Bash Command</th>
+                            <th>Description</th>
+                            <th>Options</th>
+                            <th>Usage Example</th>
+                            <th>System Calls (Under the Hood)</th>
+                        </tr>
+                        <tr>
+                            <td>ps</td>
+                            <td>View running processes</td>
+                            <td>-aux (all processes, details)</td>
+                            <td>ps aux</td>
+                            <td>read() from /proc/</td>
+                        </tr>
+                        <tr>
+                            <td>kill</td>
+                            <td>Terminate process</td>
+                            <td>-9 (force kill)</td>
+                            <td>kill -9 1234</td>
+                            <td>kill()</td>
+                        </tr>
+                    </table>
+
+                    <h4>3. File Permissions and Ownership</h4>
+                    <table class="ref">
+                        <tr>
+                            <th>Bash Command</th>
+                            <th>Description</th>
+                            <th>Options</th>
+                            <th>Usage Example</th>
+                            <th>System Calls (Under the Hood)</th>
+                        </tr>
+                        <tr>
+                            <td>chmod</td>
+                            <td>Change file permissions</td>
+                            <td>-R (recursive)</td>
+                            <td>chmod -R 755 file</td>
+                            <td>chmod()</td>
+                        </tr>
+                        <tr>
+                            <td>chown</td>
+                            <td>Change file ownership</td>
+                            <td>-R (recursive)</td>
+                            <td>chown -R user file</td>
+                            <td>chown()</td>
+                        </tr>
+                    </table>
+
+                    <h4>4. Networking and Communication</h4>
+                    <table class="ref">
+                        <tr>
+                            <th>Bash Command</th>
+                            <th>Description</th>
+                            <th>Options</th>
+                            <th>Usage Example</th>
+                            <th>System Calls (Under the Hood)</th>
+                        </tr>
+                        <tr>
+                            <td>ping</td>
+                            <td>Test network connectivity</td>
+                            <td>-c (count), -i (interval)</td>
+                            <td>ping -c 4 google.com</td>
+                            <td>socket(), sendto()</td>
+                        </tr>
+                        <tr>
+                            <td>curl</td>
+                            <td>Fetch URLs</td>
+                            <td>-o (output file), -I (headers only)</td>
+                            <td>curl -o file.txt https://example.com</td>
+                            <td>connect(), send()</td>
+                        </tr>
+                    </table>
+
+                    <h4>5. Disk and System Info</h4>
+                    <table class="ref">
+                        <tr>
+                            <th>Bash Command</th>
+                            <th>Description</th>
+                            <th>Options</th>
+                            <th>Usage Example</th>
+                            <th>System Calls (Under the Hood)</th>
+                        </tr>
+                        <tr>
+                            <td>df</td>
+                            <td>Disk space usage</td>
+                            <td>-h (human-readable)</td>
+                            <td>df -h</td>
+                            <td>statfs()</td>
+                        </tr>
+                        <tr>
+                            <td>du</td>
+                            <td>Disk usage of directories</td>
+                            <td>-s (summary), -h (human-readable)</td>
+                            <td>du -sh folder</td>
+                            <td>stat()</td>
+                        </tr>
+                    </table>
+
+                    <h4>6. Text Processing</h4>
+                    <table class="ref">
+                        <tr>
+                            <th>Bash Command</th>
+                            <th>Description</th>
+                            <th>Options</th>
+                            <th>Usage Example</th>
+                            <th>System Calls (Under the Hood)</th>
+                        </tr>
+                        <tr>
+                            <td>cat</td>
+                            <td>Display file contents</td>
+                            <td>-n (number lines)</td>
+                            <td>cat -n file.txt</td>
+                            <td>read(), write()</td>
+                        </tr>
+                        <tr>
+                            <td>grep</td>
+                            <td>Search text in files</td>
+                            <td>-i (ignore case), -r (recursive)</td>
+                            <td>grep -i "text" file.txt</td>
+                            <td>read()</td>
+                        </tr>
+                    </table>
+
+                    <h4>7. User Management</h4>
+                    <table class="ref">
+                        <tr>
+                            <th>Bash Command</th>
+                            <th>Description</th>
+                            <th>Options</th>
+                            <th>Usage Example</th>
+                            <th>System Calls (Under the Hood)</th>
+                        </tr>
+                        <tr>
+                            <td>who</td>
+                            <td>Show logged-in users</td>
+                            <td>None</td>
+                            <td>who</td>
+                            <td>read() from /var/run/utmp</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>Show user ID info</td>
+                            <td>None</td>
+                            <td>id username</td>
+                            <td>getuid(), getgid()</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+
+</html>
