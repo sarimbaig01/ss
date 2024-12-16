@@ -231,6 +231,28 @@ img {
     z-index: 100;
 }
 
+/* ref Table Styling */
+table.ref {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+/* Table Borders */
+table.ref th, 
+table.ref td {
+    border: 1px solid #ccc; /* Visible border */
+    padding: 8px 12px;
+    text-align: left; /* Left-aligned content */
+}
+
+/* Header Styling */
+table.ref th {
+    background-color: #f2f2f2; /* Light grey background */
+    font-weight: bold;
+}
+
+
 .video-container {
     display: flex;
     justify-content: center; /* Center the video horizontally */
