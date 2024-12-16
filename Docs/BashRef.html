@@ -19,29 +19,42 @@
         <section class="statement">
             <p>
                 Following is a quick reference providing a categorized overview of the most commonly used Bash commands.
-                </p>
-                
-                <p>
-                Commands are grouped into seven functional categories: File and Directory Management, Process Management, File Permissions and Ownership, Networking and Communication, Disk and System Info, Text Processing, and User Management.
-                </p>
-                
-                <p>
-                <strong>Bash</strong> is a Unix shell and command interpreter that processes user commands and interacts with the operating system. A <strong>shell</strong> is a command-line interface that interprets commands, runs applications, and manages system tasks by communicating with the operating system’s kernel.
-                </p>
-                
-                <p>
-                Bash serves two main roles: a <strong>command interpreter</strong> and a <strong>scripting language</strong>. As a command interpreter, it processes and executes individual user commands, enabling tasks like file management, process control, and system monitoring. This reference focuses on its command interpreter functionality.
-                </p>
-                
-                <p>
-                Bash follows <strong>POSIX (Portable Operating System Interface)</strong> compliance, ensuring that its commands and scripts are portable across different Unix-like operating systems. Relevant parts of the POSIX standard for shells include command interpretation, process control, input/output redirection, job control, and shell scripting syntax. While Bash includes advanced features beyond POSIX, adherence to this standard guarantees compatibility and consistent behavior across various environments.
-                </p>
-                
-            <p>In the following, each table lists some commands within a category, along with brief descriptions, available options, and usage examples.</p>
+            </p>
+
+            <p>
+                Commands are grouped into seven functional categories: File and Directory Management, Process
+                Management, File Permissions and Ownership, Networking and Communication, Disk and System Info, Text
+                Processing, and User Management.
+            </p>
+
+            <p>
+                <strong>Bash</strong> is a Unix shell and command interpreter that processes user commands and interacts
+                with the operating system. A <strong>shell</strong> is a command-line interface that interprets
+                commands, runs applications, and manages system tasks by communicating with the operating system’s
+                kernel.
+            </p>
+
+            <p>
+                Bash serves two main roles: a <strong>command interpreter</strong> and a <strong>scripting
+                    language</strong>. As a command interpreter, it processes and executes individual user commands,
+                enabling tasks like file management, process control, and system monitoring. This reference focuses on
+                its command interpreter functionality.
+            </p>
+
+            <p>
+                Bash follows <strong>POSIX (Portable Operating System Interface)</strong> compliance, ensuring that its
+                commands and scripts are portable across different Unix-like operating systems. Relevant parts of the
+                POSIX standard for shells include command interpretation, process control, input/output redirection, job
+                control, and shell scripting syntax. While Bash includes advanced features beyond POSIX, adherence to
+                this standard guarantees compatibility and consistent behavior across various environments.
+            </p>
+
+            <p>In the following, each table lists some commands within a category, along with brief descriptions,
+                available options, and usage examples.</p>
 
             <p>The complete Bash reference from GNU is given at the end of this page.</p>
             <!-- File and Directory Management -->
-            <h2>File and Directory Management</h2>
+            <h2>File and Directory Management and Editing</h2>
             <table class="ref">
                 <tr>
                     <th>Command</th>
@@ -57,6 +70,23 @@
                     <td>External</td>
                     <td><code>ls -l /path/to/directory</code></td>
                 </tr>
+
+                <tr>
+                    <td>pwd</td>
+                    <td>Prints the present working directory</td>
+                    <td>None</td>
+                    <td>Built-in</td>
+                    <td>pwd</td>
+                </tr>
+
+                <tr>
+                    <td>touch</td>
+                    <td>Creates an empty file or updates the timestamp of an existing file</td>
+                    <td>-a (change access time only), -m (change modification time only), -t (specify a timestamp)</td>
+                    <td>External</td>
+                    <td>touch filename.txt</td>
+                </tr>
+
                 <tr>
                     <td><code>cd</code></td>
                     <td>Change the current directory</td>
@@ -92,6 +122,39 @@
                     <td>External</td>
                     <td><code>mv /source/path /destination/path</code></td>
                 </tr>
+
+                <tr>
+                    <td>less/more</td>
+                    <td>Displays file contents one screen at a time</td>
+                    <td>-N (show line numbers), -q (quiet mode), -S (disable line wrapping)</td>
+                    <td>External</td>
+                    <td>less filename.txt / more filename.txt</td>
+                </tr>
+
+                <tr>
+                    <td>head</td>
+                    <td>Displays the first few lines of a file</td>
+                    <td>-n (number of lines to display), -c (number of bytes to display)</td>
+                    <td>External</td>
+                    <td>head filename.txt</td>
+                </tr>
+
+                <tr>
+                    <td>tail</td>
+                    <td>Displays the last few lines of a file</td>
+                    <td>-n (number of lines to display), -f (follow file updates in real time)</td>
+                    <td>External</td>
+                    <td>tail filename.txt</td>
+                </tr>
+
+                <tr>
+                    <td>nano</td>
+                    <td>Opens a simple text editor</td>
+                    <td>-B (create a backup file), -m (enable mouse support), -c (show cursor position)</td>
+                    <td>External</td>
+                    <td>nano filename.txt</td>
+                </tr>
+
             </table>
             <!-- Process Management -->
             <h2>Process Management</h2>
@@ -196,6 +259,23 @@
                     <th>Type</th>
                     <th>Usage</th>
                 </tr>
+
+                <tr>
+                    <td>ifconfig</td>
+                    <td>Displays or configures network interfaces (deprecated in some systems)</td>
+                    <td>-a (show all interfaces), up (activate an interface), down (deactivate an interface)</td>
+                    <td>External</td>
+                    <td>ifconfig</td>
+                </tr>
+                
+                <tr>
+                    <td>ip</td>
+                    <td>Displays and manages network interfaces and routing</td>
+                    <td>addr (show IP addresses), link (show network interfaces), route (show routing table)</td>
+                    <td>External</td>
+                    <td>ip addr</td>
+                </tr>
+                
                 <tr>
                     <td><code>netstat</code></td>
                     <td>Display network connections and statistics</td>
@@ -339,10 +419,35 @@
                     <td>External</td>
                     <td><code>sed -i 's/old/new/g' file.txt</code></td>
                 </tr>
+
+                <tr>
+                    <td>sort</td>
+                    <td>Sorts lines of text files</td>
+                    <td>-r (reverse the sort order), -n (numeric sort), -u (unique sort)</td>
+                    <td>External</td>
+                    <td>sort filename.txt</td>
+                </tr>
+
+                <tr>
+                    <td>uniq</td>
+                    <td>Removes duplicate lines from sorted input</td>
+                    <td>-c (prefix lines with count), -d (display only duplicates), -u (display unique lines)</td>
+                    <td>External</td>
+                    <td>uniq filename.txt</td>
+                </tr>
+
+                <tr>
+                    <td>wc</td>
+                    <td>Counts lines, words, and characters in a file</td>
+                    <td>-l (count lines), -w (count words), -c (count bytes/characters)</td>
+                    <td>External</td>
+                    <td>wc filename.txt</td>
+                </tr>
+
             </table>
 
 
-            <h2>User Management</h2>
+            <h2>User Management and System Information</h2>
             <table class="ref">
                 <tr>
                     <th>Command</th>
@@ -386,6 +491,39 @@
                     <td>Built-in</td>
                     <td><code>su - user</code></td>
                 </tr>
+
+                <tr>
+                    <td>sudo</td>
+                    <td>Runs a command with superuser privileges</td>
+                    <td>-u (run as a specific user), -k (reset cached credentials), -s (run shell as root)</td>
+                    <td>External</td>
+                    <td>sudo command_name</td>
+                </tr>
+
+                <tr>
+                    <td>uname</td>
+                    <td>Displays system information</td>
+                    <td>-a (all system info), -s (kernel name), -r (kernel release), -m (machine hardware name)</td>
+                    <td>External</td>
+                    <td>uname -a</td>
+                </tr>
+                
+                <tr>
+                    <td>uptime</td>
+                    <td>Displays system uptime and load averages</td>
+                    <td>-p (pretty format), -s (system boot time)</td>
+                    <td>External</td>
+                    <td>uptime</td>
+                </tr>
+                
+                <tr>
+                    <td>hostname</td>
+                    <td>Displays or sets the system's hostname</td>
+                    <td>-f (full hostname), -i (IP address), -d (domain name)</td>
+                    <td>External</td>
+                    <td>hostname</td>
+                </tr>
+                
             </table>
 
 
