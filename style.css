@@ -1,6 +1,7 @@
 /* Base styles for desktop */
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f5f5dc; /* Light beige background */
     margin: 0;
     padding: 20px;
