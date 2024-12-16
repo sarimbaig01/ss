@@ -17,13 +17,8 @@
     <div class="statement">
         <h1> Bash Shell Reference</h1>
         <section class="statement">
-
-            <p>Following is the complete Bash reference from GNU. This is a comprehensive documentation detailing Bash
-                shell features, command syntax, scripting capabilities, and built-in functions.</p>
-
-            <embed src="../pdf/bash.pdf" type="application/pdf" width="100%" height="600px">
-
-            <p>Following quick reference providing a categorized overview of the most commonly used Bash commands.</p>
+            <p>Following is a quick reference providing a categorized overview of the most commonly used Bash commands.
+            </p>
 
             <p>Commands are grouped into seven functional categories: <strong>File and Directory Management</strong>,
                 <strong>Process Management</strong>, <strong>File Permissions and Ownership</strong>, <strong>Networking
@@ -42,45 +37,51 @@
                     <th>Description</th>
                     <th>Options</th>
                     <th>Type</th>
+                    <th>Usage</th>
                 </tr>
                 <tr>
                     <td><code>ls</code></td>
                     <td>List directory contents</td>
                     <td>-l (long format), -a (show hidden), -h (human-readable)</td>
                     <td>External</td>
+                    <td><code>ls -l /path/to/directory</code></td>
                 </tr>
                 <tr>
                     <td><code>cd</code></td>
                     <td>Change the current directory</td>
                     <td>N/A</td>
                     <td>Built-in</td>
+                    <td><code>cd /path/to/directory</code></td>
                 </tr>
                 <tr>
                     <td><code>mkdir</code></td>
                     <td>Create a new directory</td>
                     <td>-p (create parents), -m (set permissions)</td>
                     <td>External</td>
+                    <td><code>mkdir -p /path/to/directory</code></td>
                 </tr>
                 <tr>
                     <td><code>rm</code></td>
                     <td>Remove files or directories</td>
                     <td>-r (recursive), -f (force deletion)</td>
                     <td>External</td>
+                    <td><code>rm -rf /path/to/directory</code></td>
                 </tr>
                 <tr>
                     <td><code>cp</code></td>
                     <td>Copy files or directories</td>
                     <td>-r (recursive), -u (update only)</td>
                     <td>External</td>
+                    <td><code>cp -r /source/path /destination/path</code></td>
                 </tr>
                 <tr>
                     <td><code>mv</code></td>
                     <td>Move or rename files or directories</td>
                     <td>-i (prompt before overwrite), -u (update only)</td>
                     <td>External</td>
+                    <td><code>mv /source/path /destination/path</code></td>
                 </tr>
             </table>
-
             <!-- Process Management -->
             <h2>Process Management</h2>
             <table class="ref">
@@ -89,45 +90,51 @@
                     <th>Description</th>
                     <th>Options</th>
                     <th>Type</th>
+                    <th>Usage</th>
                 </tr>
                 <tr>
                     <td><code>ps</code></td>
                     <td>Display active processes</td>
                     <td>-e (all processes), -f (full format)</td>
                     <td>External</td>
+                    <td><code>ps -ef</code></td>
                 </tr>
                 <tr>
                     <td><code>top</code></td>
                     <td>Show real-time process information</td>
                     <td>-d (delay interval), -u (user filter)</td>
                     <td>External</td>
+                    <td><code>top -d 3</code></td>
                 </tr>
                 <tr>
                     <td><code>kill</code></td>
                     <td>Terminate a process by PID</td>
                     <td>-9 (force kill), -15 (graceful stop)</td>
                     <td>Built-in</td>
+                    <td><code>kill -9 1234</code></td>
                 </tr>
                 <tr>
                     <td><code>bg</code></td>
                     <td>Resume a job in the background</td>
                     <td>N/A</td>
                     <td>Built-in</td>
+                    <td><code>bg %1</code></td>
                 </tr>
                 <tr>
                     <td><code>fg</code></td>
                     <td>Bring a background job to the foreground</td>
                     <td>N/A</td>
                     <td>Built-in</td>
+                    <td><code>fg %1</code></td>
                 </tr>
                 <tr>
                     <td><code>jobs</code></td>
                     <td>List active jobs</td>
                     <td>N/A</td>
                     <td>Built-in</td>
+                    <td><code>jobs</code></td>
                 </tr>
             </table>
-
             <!-- File Permissions and Ownership -->
             <h2>File Permissions and Ownership</h2>
             <table class="ref">
@@ -136,30 +143,35 @@
                     <th>Description</th>
                     <th>Options</th>
                     <th>Type</th>
+                    <th>Usage</th>
                 </tr>
                 <tr>
                     <td><code>chmod</code></td>
                     <td>Change file permissions</td>
                     <td>-R (recursive), -v (verbose)</td>
                     <td>External</td>
+                    <td><code>chmod -R 755 /path/to/directory</code></td>
                 </tr>
                 <tr>
                     <td><code>chown</code></td>
                     <td>Change file ownership</td>
                     <td>-R (recursive), --reference (use another file's settings)</td>
                     <td>External</td>
+                    <td><code>chown -R user:group /path/to/directory</code></td>
                 </tr>
                 <tr>
                     <td><code>umask</code></td>
                     <td>Set default file permissions</td>
                     <td>N/A</td>
                     <td>Built-in</td>
+                    <td><code>umask 022</code></td>
                 </tr>
                 <tr>
                     <td><code>stat</code></td>
                     <td>Display detailed file information</td>
                     <td>-f (filesystem), -t (terse output)</td>
                     <td>External</td>
+                    <td><code>stat /path/to/file</code></td>
                 </tr>
             </table>
 
@@ -171,50 +183,59 @@
                     <th>Description</th>
                     <th>Options</th>
                     <th>Type</th>
+                    <th>Usage</th>
                 </tr>
                 <tr>
                     <td><code>netstat</code></td>
                     <td>Display network connections and statistics</td>
                     <td>-t (TCP), -u (UDP)</td>
                     <td>External</td>
+                    <td><code>netstat -tu</code></td>
                 </tr>
                 <tr>
                     <td><code>nslookup</code></td>
                     <td>Query DNS records</td>
                     <td>N/A</td>
                     <td>External</td>
+                    <td><code>nslookup example.com</code></td>
                 </tr>
                 <tr>
                     <td><code>ping</code></td>
                     <td>Check network connectivity</td>
                     <td>-c (count), -i (interval)</td>
                     <td>External</td>
+                    <td><code>ping -c 4 example.com</code></td>
                 </tr>
                 <tr>
                     <td><code>curl</code></td>
                     <td>Transfer data from URLs</td>
                     <td>-O (output to file), -L (follow redirects)</td>
                     <td>External</td>
+                    <td><code>curl -O https://example.com/file.zip</code></td>
                 </tr>
                 <tr>
                     <td><code>wget</code></td>
                     <td>Download files from the web</td>
                     <td>-q (quiet), -r (recursive)</td>
                     <td>External</td>
+                    <td><code>wget -q https://example.com/file.zip</code></td>
                 </tr>
                 <tr>
                     <td><code>ssh</code></td>
                     <td>Remote login to a server</td>
                     <td>-l (username), -p (port)</td>
                     <td>External</td>
+                    <td><code>ssh -l user example.com</code></td>
                 </tr>
                 <tr>
                     <td><code>scp</code></td>
                     <td>Securely copy files between systems</td>
                     <td>-r (recursive), -P (port)</td>
                     <td>External</td>
+                    <td><code>scp -r file.txt user@example.com:/remote/path</code></td>
                 </tr>
             </table>
+
 
             <h2>Disk and System Info</h2>
             <table class="ref">
@@ -223,38 +244,45 @@
                     <th>Description</th>
                     <th>Options</th>
                     <th>Type</th>
+                    <th>Usage</th>
                 </tr>
                 <tr>
                     <td><code>df</code></td>
                     <td>Show disk space usage</td>
                     <td>-h (human-readable), -T (file system type)</td>
                     <td>External</td>
+                    <td><code>df -h</code></td>
                 </tr>
                 <tr>
                     <td><code>du</code></td>
                     <td>Show directory size</td>
                     <td>-h (human-readable), -s (summary)</td>
                     <td>External</td>
+                    <td><code>du -sh /path/to/directory</code></td>
                 </tr>
                 <tr>
                     <td><code>uptime</code></td>
                     <td>Show system uptime</td>
                     <td>N/A</td>
                     <td>External</td>
+                    <td><code>uptime</code></td>
                 </tr>
                 <tr>
                     <td><code>uname</code></td>
                     <td>Display system information</td>
                     <td>-a (all info), -r (kernel release)</td>
                     <td>External</td>
+                    <td><code>uname -a</code></td>
                 </tr>
                 <tr>
                     <td><code>free</code></td>
                     <td>Show memory usage</td>
                     <td>-h (human-readable), -t (totals)</td>
                     <td>External</td>
+                    <td><code>free -h</code></td>
                 </tr>
             </table>
+
 
             <h2>Text Processing</h2>
             <table class="ref">
@@ -263,38 +291,45 @@
                     <th>Description</th>
                     <th>Options</th>
                     <th>Type</th>
+                    <th>Usage</th>
                 </tr>
                 <tr>
                     <td><code>cat</code></td>
                     <td>Display file contents</td>
                     <td>-n (number lines), -E (show ends)</td>
                     <td>External</td>
+                    <td><code>cat -n file.txt</code></td>
                 </tr>
                 <tr>
                     <td><code>echo</code></td>
                     <td>Print text to the terminal</td>
                     <td>-e (enable escape), -n (no newline)</td>
                     <td>Built-in</td>
+                    <td><code>echo -e "Hello\nWorld"</code></td>
                 </tr>
                 <tr>
                     <td><code>grep</code></td>
                     <td>Search for text patterns</td>
                     <td>-i (ignore case), -v (invert match)</td>
                     <td>External</td>
+                    <td><code>grep -i "pattern" file.txt</code></td>
                 </tr>
                 <tr>
                     <td><code>awk</code></td>
                     <td>Text processing tool</td>
                     <td>-F (field separator), -v (assign variable)</td>
                     <td>External</td>
+                    <td><code>awk -F ":" '{print $1}' file.txt</code></td>
                 </tr>
                 <tr>
                     <td><code>sed</code></td>
                     <td>Stream editor for text manipulation</td>
                     <td>-e (script), -i (in-place)</td>
                     <td>External</td>
+                    <td><code>sed -i 's/old/new/g' file.txt</code></td>
                 </tr>
             </table>
+
 
             <h2>User Management</h2>
             <table class="ref">
@@ -303,38 +338,51 @@
                     <th>Description</th>
                     <th>Options</th>
                     <th>Type</th>
+                    <th>Usage</th>
                 </tr>
                 <tr>
                     <td><code>whoami</code></td>
                     <td>Show current user</td>
                     <td>N/A</td>
                     <td>Built-in</td>
+                    <td><code>whoami</code></td>
                 </tr>
                 <tr>
                     <td><code>id</code></td>
                     <td>Display user ID</td>
                     <td>-u (user ID), -g (group ID)</td>
                     <td>External</td>
+                    <td><code>id -u</code></td>
                 </tr>
                 <tr>
                     <td><code>who</code></td>
                     <td>Show who is logged in</td>
                     <td>-b (last boot), -u (users)</td>
                     <td>External</td>
+                    <td><code>who -u</code></td>
                 </tr>
                 <tr>
                     <td><code>passwd</code></td>
                     <td>Change user password</td>
                     <td>-d (delete password), -l (lock account)</td>
                     <td>External</td>
+                    <td><code>passwd user</code></td>
                 </tr>
                 <tr>
                     <td><code>su</code></td>
                     <td>Switch user</td>
                     <td>- (login shell), -c (run command)</td>
                     <td>Built-in</td>
+                    <td><code>su - user</code></td>
                 </tr>
             </table>
+
+
+            <p>Following is the <strong>complete Bash reference</strong> from GNU. This is a comprehensive documentation
+                detailing Bash shell features, command syntax, scripting capabilities, and built-in functions.</p>
+
+            <embed src="../pdf/bash.pdf" type="application/pdf" width="100%" height="600px">
+
 
         </section>
     </div>
