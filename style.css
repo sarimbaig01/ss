@@ -1,0 +1,381 @@
+/* Base styles for desktop */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc; /* Light beige background */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+code {
+        font-family: Consolas, "Courier New", monospace;
+}
+
+.code-container {
+    padding: 0px; /* Reduced padding to 10 pixels */
+    width: 90%; /* Make the container wider */
+    max-width: 1000px; /* Increase max width */
+    margin: 20px 0; /* Remove auto margins and reduce to just vertical margins */
+    left: 5%; /* Move the container closer to the left of the screen */
+    /*border: 1px solid #ccc; /* Thin border, slightly darker than body's background color */
+}
+
+/* Add this to your CSS file */
+.algorithm p {
+    margin: 0;
+}
+
+.algorithm .indent-1 {
+    margin-left: 20px;
+}
+
+.algorithm .indent-2 {
+    margin-left: 40px;
+}
+
+.algorithm .indent-3 {
+    margin-left: 60px;
+}
+
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #373832;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.copy-btn:hover {
+    background-color: #49483f;
+}
+
+.back-link {
+    position: fixed;
+    z-index: 100;
+    cursor: pointer;
+    background-color: #373832;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.back-link.top-right {
+    top: 20px;
+    right: 20px;
+}
+
+.back-link.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+.ptable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.ptable th, .ptable td {
+    border-bottom: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+}
+
+.ptable th {
+    border-top: 1px solid #000;
+    background-color: #f0f0f0;
+}
+
+.ptable td {
+    vertical-align: top;
+}
+
+.ptable a {
+    color: #0000EE;
+    text-decoration: none;
+}
+
+.ptable a:hover {
+    text-decoration: underline;
+}
+
+.ptable th.sub-header {
+    color: blue;
+    font-style: italic;
+}
+
+.dtable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dtable th, .dtable td {
+    border: 1px solid grey;
+    padding: 8px;
+    text-align: left;
+}
+
+.dtable th {
+    background-color: #f2f2f2;
+}
+
+/* CSS for table with class atable */
+table.atable {
+    border-collapse: collapse;
+    width: 100%; /* Optional: Set the table to take the full width of its container */
+}
+
+table.atable, 
+table.atable td {
+    border: 1px solid #000; /* Thin dark border */
+}
+
+table.atable th {
+    border: 1px solid #000; /* Add a thin dark border to the table headers */
+    text-align: left; /* Left justify the header text */
+    padding: 8px; /* Add padding for better readability */
+    font-weight: normal;
+}
+
+table.atable td {
+    padding: 8px; /* Optional: Add padding to table cells */
+    text-align: left; /* Optional: Align text to the left */
+}
+
+
+.statement {
+    margin-right: 270px; /* Increase right margin to make more space for the TOC */
+}
+
+legend {
+    color: burgundy;
+    font-weight: bold;
+}
+
+fieldset {
+    border: 2px solid burgundy; /* Adjust the border width if needed */
+    color: burgundy; /* Set the text color inside the fieldset to burgundy */
+}
+
+.toc {
+    position: fixed;
+    top: 100px; /* Adjust based on your preference */
+    right: 180px; /* Move the TOC a little towards the right */
+    width: 220px; /* Adjust the width as necessary */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.toc a {
+    display: block; /* Ensure each link takes up the full width and appears on its own line */
+    margin: 5px 0; /* Add some margin for spacing between links */
+    text-decoration: underline; /* Underline the links */
+    color: black; /* Set link color to black */
+    position: relative; /* Enable positioning of pseudo-element */
+    padding-left: 20px; /* Reduce padding to bring text closer to bullet */
+}
+
+.toc a::before {
+    content: "•"; /* Bullet point character */
+    position: absolute; /* Position relative to the link */
+    left: 5px; /* Adjust distance from the link text */
+    color: black; /* Same color as the link text */
+}
+
+.toc a.sub-item {
+    padding-left: 40px; /* Indent sub-items more */
+}
+
+.toc a.sub-item::before {
+    content: "•"; /* Bullet point character */
+    position: absolute; /* Position relative to the link */
+    left: 25px; /* Adjust distance from the link text to align bullets */
+    color: black; /* Same color as the link text */
+}
+
+.toc a:hover {
+    text-decoration: underline; /* Underline links on hover for better visibility */
+}
+
+
+img {
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.toc-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center; /* Center the video horizontally */
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+/*figure {
+    display: inline-block;
+    text-align: center;
+    margin: 20px 0;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+*/
+
+
+.indented-block {
+    text-indent: 30px;
+}
+
+
+figure {
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center content horizontally */
+    margin: 20px auto; /* Center horizontally and add some vertical margin */
+    text-align: center; /* Center text within the figure */
+    max-width: 100%; /* Ensure figures do not exceed container width */
+}
+
+figcaption {
+    margin-top: 10px; /* Add some space between the image/video and the caption */
+    font-size: 14px;
+    color: #555;
+    text-align: center; /* Center the caption text */
+}
+
+figure.no-center {
+    display: block;
+    justify-content: initial;
+    align-items: initial;
+    text-align: initial;
+}
+
+.flex-container {
+    display: flex;
+    gap: 0; /* Removes space between code wrappers */
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.flex-container .code-wrapper {
+    display: flex;
+    flex-direction: column; /* Stacks heading and code container vertically */
+    flex: 1;
+    max-width: 50%; /* Adjusts to allow two containers to fit side-by-side */
+}
+
+.flex-container .code-container {
+    padding: 10px !important; /* Override global padding */
+    width: auto !important; /* Override global width */
+    max-width: 100% !important; /* Override global max-width */
+    margin: 0 !important; /* Override global margin */
+    left: auto !important; /* Override global left positioning */
+    border-radius: 5px; /* Add border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+
+.flex-container .code-container pre {
+    margin: 0; /* Removes default margin */
+    font-family: Consolas, Monaco, 'Courier New', monospace; /* Sets a monospace font for code */
+    overflow: auto; /* Adds scrolling only to the <pre> element */
+    padding: 0; /* Removes extra padding to avoid double scroll */
+    height: 100%;
+}
+
+
+/* Ensure video controls are hidden */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-overlay-enclosure {
+    display: none !important;
+}
+
+
+/* Media queries for mobile devices */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .code-container {
+        width: 100%; /* Full width on small screens */
+        padding: 5px; /* Reduce padding on small screens */
+        margin: 10px 0; /* Reduce margin on small screens */
+        left: 0; /* Remove left offset on small screens */
+    }
+    
+    .toc {
+        position: static; /* Remove fixed positioning on small screens */
+        width: 100%; /* Make the TOC full width */
+        margin-bottom: 20px; /* Add some margin below the TOC */
+        display: none; /* Hide the TOC by default on mobile */
+    }
+
+    .statement {
+        margin-right: 0; /* Remove the right margin */
+    }
+    
+    .copy-btn {
+        position: relative; /* Adjust positioning for small screens */
+        top: 0;
+        right: 0;
+        margin-top: 10px; /* Add margin for spacing */
+    }
+}
+
+
+
+/* Media queries for tablets */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    body {
+        padding: 15px;
+    }
+
+    .code-container {
+        width: 95%; /* Slightly narrower on tablets */
+        padding: 10px; /* Moderate padding on tablets */
+        margin: 15px 0; /* Moderate margin on tablets */
+        left: 2.5%; /* Adjust left offset on tablets */
+    }
+    
+    .toc {
+        right: 10px; /* Adjust TOC position for tablets */
+        width: 200px; /* Adjust width for tablets */
+    }
+
+    .statement {
+        margin-right: 150px; /* Adjust right margin for tablets */
+    }
+}
