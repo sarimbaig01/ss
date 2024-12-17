@@ -259,6 +259,39 @@ table.ref th {
     margin: 20px 0; /* Add margin for spacing */
 }
 
+
+/* Specific Console Styling */
+.console {
+    background: #1e1e1e;
+    color: #ffffff;
+    font-family: "Courier New", Courier, monospace;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    line-height: 1.6;
+    font-size: 14px;
+    width: 80%;
+    max-width: 800px;
+    overflow-x: auto;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid #444;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.prompt {
+    color: #0ff; /* Cyan for prompt */
+}
+
+.command {
+    color: #0f0; /* Green for commands */
+}
+
+.output {
+    color: #bbb; /* Light grey for output */
+}
+
 /*figure {
     display: inline-block;
     text-align: center;

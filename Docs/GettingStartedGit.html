@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Git</title>
+    <link rel="stylesheet" href="../prism.css"> <!-- Link to your external CSS file -->
+    <script src="../prism.js"></script> <!-- Adjust the path as needed -->
+    <script src="../insertCode.js"></script> <!-- Link to your external JavaScript file -->
+    <link rel="stylesheet" href="../style.css"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+
+        <h1>Getting Started with Git</h1>
+        <hr>
+
+        <h2>
+            Introduction
+        </h2>
+        <p>Git is a version control system that tracks changes in code, enabling developers to manage versions, roll
+            back to previous states, and collaborate efficiently. In courses like ELEC50014, Git facilitates code
+            sharing among project partners (if this is part of the course) and further allows instructors to distribute
+            project starter code to students.</p>
+
+        <h3>Step 1. Create a GitHub account and install git</h3>
+        <p>There are two components involved in setting up Git. One component is that you must have an account on a
+            repository hosting service (that is, a website where you can put your code so your partner can access it).
+            The repository hosting service we use in ELEC50014 is called GitHub. The other component is the Git command
+            line tools, which allow you to interface with Git locally.</p>
+
+        <h4>Step 1a. Create a GitHub account (if you don't have one already)</h3>
+            <p>To sign up for a GitHub account, open GitHub.com in a browser and choose your username, imperial email,
+                and password. Then, select the “free” plan, and then you will be taken to your homepage. Now, you need
+                to verify your email account. Click on the tool icon in the top right corner to get to account settings,
+                then select emails, and click the “verify” button next to your email address. Then, go to your email to
+                confirm.C</p>
+            <p>Check if git is installed:</p>
+            <pre class="console"><code>git --version</code></pre>
+            <p>If you see a version number, git is already installed.</p>
+            <h4>Step 1b. Install git (if not already installed):</h4>
+            <pre class="console"><code>sudo apt install git   <!-- Debian-based -->
+sudo yum install git   <!-- RHEL-based -->
+brew install git       <!-- Homebrew-based -->
+</code></pre>
+            <h3>Step 2. Configure Git with GitHub</h3>
+            <p>We now need to configure Git to work with our GitHub account.</p>
+
+            <h4>Step 2a. Generate and use a Personal Access Token (PAT)</h4>
+            <p>We can use either the SSH or HTTPS protocols to connect Git from our local machine to the remote GitHub
+                server. Both protocols provide a secure connection. We will use HTTPS, primarily for simplicity.
+                To authenticate over HTTPS, we need a Personal Access Token (PAT), a secure alphanumeric code
+                generated from GitHub, used instead of a password for Git operations over HTTPS.</p>
+
+            <p>Generate a PAT by following these steps:</p>
+            <ul>
+                <li>Visit <a href="https://github.com/settings/tokens" target="_blank">GitHub Personal Access
+                        Tokens</a>.</li>
+                <li>Click <strong>"Generate new token (classic)"</strong>.</li>
+                <li>Select Scopes: Choose <code>repo</code> for full access to repositories.</li>
+                <li>Click <strong>Generate Token</strong> and <strong>save the token securely</strong> (you won’t see it
+                    again).</li>
+            </ul>
+
+            <h4>Step 2b. Configure git with the PAT</h4>
+
+            <p>Run the following commands to configure your Git account details:</p>
+
+            <pre class="console"><code>git config --global user.name "Your GitHub Username"
+git config --global user.email "your_github_email@example.com"
+</code></pre>
+
+<p>The first command sets your name. Remember to put it in quotes! The second sets your email.
+    For this, use the email you used to create your Github account.</p>
+
+            <p>Authenticate with GitHub (on first push):</p>
+            <pre class="console"><code>git push origin main</code></pre>
+
+            <p>When prompted for a username, enter your GitHub username.</p>
+            <p>When prompted for a password, enter your Personal Access Token (PAT).</p>
+
+            <p>Cache your credentials to avoid repeated authentication:</p>
+            <pre class="console"><code>git config --global credential.helper cache</code></pre>
+
+
+            <h3>Step 3. Create a repository</h3>
+            <p>Create a new directory for the repository:</p>
+            <pre class="console"><code>mkdir hello-git
+cd hello-git
+</code></pre>
+
+            <p>Initialize the git repository:</p>
+            <p>The following will create a repository in your current directory. Therefore, make sure to navigate to the place on your computer where you wish to store the repository (using <code>cd</code> etc. and then run the following commands.</p>
+            <pre class="console"><code>git init</code></pre>
+            <p><code>git init</code> initializes a local repository, allowing git to
+                track changes made in the folder.</p>
+
+            <h3>Step 4 (this is optional if you have just created your first repository). Clone an existing repository (for example if created through the web interface)</h3>
+            <p>For now, you may not need this step as you are creating your first repository. However, at some point you may need to clone a repository provided to you, or that you have created remotely on GitHub, onto your local machine.</p>
+            <p>Clone an existing repository:</p>
+            <pre class="console"><code>git clone https://github.com/yourusername/repository-name.git</code></pre>
+
+            <p>Note: GitHub provides a URL for every repository, ending with .git. On GitHub you can find this URL by going to your repository page and clicking on the <code>Code</code> drop down menu.</p>
+
+            <p>Navigate into the cloned repository:</p>
+            <pre class="console"><code>cd repository-name</code></pre>
+            <p>
+                Overall, <<code>git clone</code> creates a <strong>copy of a remote repository</strong> on your
+                    local machine, making it ready for development.
+            </p>
+
+            <h3>Step 5. Open a local repository in VSCode</h3>
+            <p>Open the repository folder in VSCode:</p>
+            <p>Make sure you have navigated into the repository folder. Then execute:</p>
+            <pre class="console"><code>code .</code></pre>
+            <p>This can also be done from within VSCode by selecting File > Open Folder... (choosing your repository folder)</p>
+            <p>From here on, you can open the shell from within VSCode by selecting Terminal > New Terminal...</p>
+            <p>This sets us up to use git from within VSCode, making code implementation and integration a seamless process.</p>
+            <p>Verify git integration:</p>
+            <ul>
+                <li>VSCode automatically detects the repository if it’s initialized.</li>
+                <li>Open the Source Control (Explorer) tab on the left sidebar.</li>
+            </ul>
+
+            <h3>Step 6. Example: Managing a C++ File</h3>
+            <p>Create a file: <code>helloworld.cpp</code> in VSCode (which is opened in your repository folder)</p>
+
+            <div class="code-container" data-filename="../cpp/helloworld.cpp">
+                <pre><code class="language-cpp" id="cpp-code">
+                </code></pre>
+            </div>
+
+            <p>Stage the file:</p>
+            <pre class="console"><code>git add helloworld.cpp</code></pre>
+            <p><code>git add</code> moves changes to the staging area, preparing them
+                for a commit.</p>
+
+            <p>Commit the file:</p>
+            <pre class="console"><code>git commit -m "Added helloworld.cpp"</code></pre>
+            <p><code>git commit</code> saves changes permanently to your local
+                repository, along with a message describing what was done.</p>
+
+            <p>Modify the file: change <code>Hello, World!</code> to <code>Hello, Git!</code></p>
+
+            <p>Stage and commit again:</p>
+            <pre class="console"><code>git add helloworld.cpp
+git commit -m "Updated message in helloworld.cpp"
+</code></pre>
+
+            <p>Push changes to remote repository:</p>
+            <pre class="console"><code>git push origin main</code></pre>
+            <p><code>git push</code> uploads committed changes from the local
+                repository to a remote repository.</p>
+
+            <h3>Step 7. Pull changes</h3>
+            <p>Pull latest changes from remote repository:</p>
+            <pre class="console"><code>git pull origin main</code></pre>
+            <p><code>git pull</code> downloads and integrates updates from the remote
+                repository into your local project.</p>
+
+            </section>
+    </div>
+</body>
+
+</html>
