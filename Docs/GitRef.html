@@ -21,26 +21,281 @@
             <p>
                 Following is a quick reference providing a categorized overview of the most commonly used git commands.
             </p>
-            
+
             <p>
-                Git is a distributed version control system designed to manage and track changes in source code. 
+                Git is a distributed version control system designed to manage and track changes in source code.
                 It allows developers to collaborate efficiently while maintaining a complete history of changes.
             </p>
-            
+
             <p>
-                Git helps developers manage project versions, track changes, and maintain a history of all modifications. Even when working individually, it allows developers to manage different versions of their code, experiment with new features safely, and revert to previous states if needed. Its support for branching, merging, and distributed workflows simplifies development tasks, while maintaining a clear history of changes for future debugging and enhancements.
+                Git helps developers manage project versions, track changes, and maintain a history of all
+                modifications. Even when working individually, it allows developers to manage different versions of
+                their code, experiment with new features safely, and revert to previous states if needed. Its support
+                for branching, merging, and distributed workflows simplifies development tasks, while maintaining a
+                clear history of changes for future debugging and enhancements.
             </p>
-            
+
             <p>
-                Git is widely used across industry, academia, and open-source projects. Companies rely on it for software development, and open-source contributors worldwide use it to collaborate on projects of all sizes.
+                Git is widely used across industry, academia, and open-source projects. Companies rely on it for
+                software development, and open-source contributors worldwide use it to collaborate on projects of all
+                sizes.
             </p>
-            
+
             <p>
-                Git commands are categorized based on functionality, including repository setup, file tracking, branch management, remote 
+                Git commands are categorized based on functionality, including repository setup, file tracking, branch
+                management, remote
                 collaboration, history inspection, and undoing changes.
             </p>
 
-            
+            <h2>1. Repository Setup and Configuration</h2>
+
+            <table class="ref">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                    <th>Usage Example</th>
+                </tr>
+
+                <tr>
+                    <td><code>git init</code></td>
+                    <td>Initializes a new Git repository</td>
+                    <td>None</td>
+                    <td><code>git init</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git clone</code></td>
+                    <td>Copies a repository from a remote source</td>
+                    <td>-b (branch), --depth (shallow clone)</td>
+                    <td><code>git clone URL</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git config</code></td>
+                    <td>Sets user configuration details</td>
+                    <td>--global (all projects)</td>
+                    <td><code>git config --global user.name "John"</code></td>
+                </tr>
+            </table>
+
+            <h2>2. File and Change Management</h2>
+
+            <table class="ref">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                    <th>Usage Example</th>
+                </tr>
+
+                <tr>
+                    <td><code>git add</code></td>
+                    <td>Stages changes for commit</td>
+                    <td>-A (all files), . (current directory)</td>
+                    <td><code>git add filename</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git commit</code></td>
+                    <td>Records changes with a commit message</td>
+                    <td>-m (commit message), --amend (edit last commit)</td>
+                    <td><code>git commit -m "message"</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git rm</code></td>
+                    <td>Removes files from the repository</td>
+                    <td>--cached (unstage file), -r (recursive)</td>
+                    <td><code>git rm filename</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git mv</code></td>
+                    <td>Renames or moves files</td>
+                    <td>None</td>
+                    <td><code>git mv old.txt new.txt</code></td>
+                </tr>
+            </table>
+
+            <h2>3. Branching and Merging</h2>
+
+            <table class="ref">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                    <th>Usage Example</th>
+                </tr>
+
+                <tr>
+                    <td><code>git branch</code></td>
+                    <td>Manages branches</td>
+                    <td>-a (list all branches), -d (delete branch)</td>
+                    <td><code>git branch new-branch</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git checkout</code></td>
+                    <td>Switches branches or restores files</td>
+                    <td>-b (create new branch)</td>
+                    <td><code>git checkout main</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git switch</code></td>
+                    <td>Switches branches (alternative to <code>checkout</code>)</td>
+                    <td>None</td>
+                    <td><code>git switch new-branch</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git merge</code></td>
+                    <td>Combines changes from different branches</td>
+                    <td>--no-ff (disable fast-forward merging)</td>
+                    <td><code>git merge main</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git rebase</code></td>
+                    <td>Reapplies commits on a new base branch</td>
+                    <td>--continue (after conflict resolution)</td>
+                    <td><code>git rebase main</code></td>
+                </tr>
+            </table>
+
+            <h2>4. Remote Repository Management</h2>
+
+            <table class="ref">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                    <th>Usage Example</th>
+                </tr>
+
+                <tr>
+                    <td><code>git remote</code></td>
+                    <td>Manages remote repositories</td>
+                    <td>-v (show remote URLs)</td>
+                    <td><code>git remote add origin URL</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git fetch</code></td>
+                    <td>Retrieves changes from a remote repository</td>
+                    <td>--all (all branches)</td>
+                    <td><code>git fetch origin</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git pull</code></td>
+                    <td>Fetches and merges changes from a remote repository</td>
+                    <td>--rebase (apply commits without merge)</td>
+                    <td><code>git pull origin main</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git push</code></td>
+                    <td>Uploads changes to a remote repository</td>
+                    <td>-u (set upstream), --force (overwrite changes)</td>
+                    <td><code>git push origin main</code></td>
+                </tr>
+            </table>
+
+            <h2>5. Inspection and Comparison</h2>
+
+            <table class="ref">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                    <th>Usage Example</th>
+                </tr>
+
+                <tr>
+                    <td><code>git status</code></td>
+                    <td>Displays current repository status</td>
+                    <td>None</td>
+                    <td><code>git status</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git log</code></td>
+                    <td>Displays commit history</td>
+                    <td>--oneline (compact view), --graph (visual)</td>
+                    <td><code>git log --oneline</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git show</code></td>
+                    <td>Shows details of a specific commit</td>
+                    <td>None</td>
+                    <td><code>git show HEAD</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git diff</code></td>
+                    <td>Shows changes between commits or files</td>
+                    <td>--cached (staged changes)</td>
+                    <td><code>git diff</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git blame</code></td>
+                    <td>Shows who made changes to each line of a file</td>
+                    <td>-L (limit to specific lines)</td>
+                    <td><code>git blame filename</code></td>
+                </tr>
+            </table>
+
+            <h2>Undoing Changes and History Rewriting</h2>
+
+            <table class="ref">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                    <th>Usage Example</th>
+                </tr>
+
+                <tr>
+                    <td><code>git reset</code></td>
+                    <td>Resets changes in the working directory</td>
+                    <td>--soft (keep changes), --hard (discard changes)</td>
+                    <td><code>git reset HEAD~1</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git revert</code></td>
+                    <td>Creates a new commit to undo changes</td>
+                    <td>None</td>
+                    <td><code>git revert HEAD</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git stash</code></td>
+                    <td>Temporarily saves uncommitted changes</td>
+                    <td>pop (restore changes), list (view stashes)</td>
+                    <td><code>git stash</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git cherry-pick</code></td>
+                    <td>Applies specific commits from another branch</td>
+                    <td>None</td>
+                    <td><code>git cherry-pick &lt;commit-hash&gt;</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>git restore</code></td>
+                    <td>Restores working directory files</td>
+                    <td>--staged (restore from index)</td>
+                    <td><code>git restore filename</code></td>
+                </tr>
+            </table>
+
+
         </section>
     </div>
 </body>
