@@ -12,7 +12,16 @@
 </head>
 
 <body>
-    <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
+    <a href="javascript:history.back()" class="back-link top-right">← Back</a>
+
+
+    <div class="toc">
+        <section class="toc">
+        <h2>Useful Links</h2>
+        <a href="GitRef.html" target="_blank">Quick Reference to Git commands</a>
+        <a href="BashRef.html" target="_blank">Bash Reference</a>
+    </section>
+    </div>
 
     <div class="statement">
 
@@ -161,6 +170,31 @@ git commit -m "Updated message in helloworld.cpp"
             <pre class="console"><code>git pull origin main</code></pre>
             <p><code>git pull</code> downloads and integrates updates from the remote
                 repository into your local project.</p>
+
+                <h2>Basic Git Commands</h2>
+                <p>This is a summary of the basic Git commands you have seen above.</p>
+                <p>A quick reference to some of the most common git commands is <a href="GitRef.html" target="_blank">available here</a>.</p>
+                <ul>
+                    <li>
+                        <strong>git status</strong> - Tells you the status of your local repository: what files have been added, deleted, and changed since your last commit. It also shows which changes are in staging and which ones aren’t. When a change is in staging, it will be included in the next commit. If you have text coloring enabled, staged changes appear <span style="color: green;">green</span> and unstaged changes appear <span style="color: red;">red</span> (the same colors appear in VSCode).
+                    </li>
+                
+                    <li>
+                        <strong>git add &lt;file/folder&gt;</strong> - Stages the specified file or folder. You can use regular expressions to include multiple files or run <code>git add</code> multiple times for different files. If you stage a file but make changes afterward, it automatically gets unstaged, so you must run <code>git add</code> again.
+                    </li>
+                
+                    <li>
+                        <strong>git commit</strong> - Commits the changes that were staged. Think of this as logging a new version of your code with the set of staged changes. Git will open its text editor so that you can add a message describing the changes. Writing clear and informative commit messages can help your collaborators (and your future self) understand what was changed in previous commits. Note that all commits only exist on your local copy until you push them to the remote repository.
+                    </li>
+                
+                    <li>
+                        <strong>git push</strong> - Pushes all local commits since your last push to the remote repository. This allows collaborators to access your changes. If someone else has made changes to the remote repository while you were working, Git may require you to perform a <code>git pull</code> before you can push your changes.
+                    </li>
+                
+                    <li>
+                        <strong>git pull</strong> - Pulls all commits from the remote repository that your local version doesn’t have. This retrieves any changes that others working on your project have pushed since the last time you pulled. You should commit all your changes before doing this to avoid losing them.
+                    </li>
+                </ul>
 
             </section>
     </div>

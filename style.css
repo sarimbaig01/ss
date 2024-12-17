@@ -173,7 +173,7 @@ fieldset {
 .toc {
     position: fixed;
     top: 100px; /* Adjust based on your preference */
-    right: 180px; /* Move the TOC a little towards the right */
+    right: 40px; /* Move the TOC a little towards the right */
     width: 220px; /* Adjust the width as necessary */
     padding: 10px;
     border: 1px solid #ccc;
@@ -393,11 +393,16 @@ video::-webkit-media-controls-overlay-enclosure {
     }
     
     .toc {
-        position: static; /* Remove fixed positioning on small screens */
-        width: 100%; /* Make the TOC full width */
-        margin-bottom: 20px; /* Add some margin below the TOC */
-        display: none; /* Hide the TOC by default on mobile */
+        position: fixed;
+        top: 100px;         /* Adjust based on preference */
+        right: 400px;      /* Increased distance to avoid overlap */
+        width: 220px;      /* Width of the TOC */
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+    
 
     .statement {
         margin-right: 0; /* Remove the right margin */
