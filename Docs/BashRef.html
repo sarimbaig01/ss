@@ -72,19 +72,19 @@
                 </tr>
 
                 <tr>
-                    <td>pwd</td>
+                    <td><code>pwd</code></td>
                     <td>Prints the present working directory</td>
                     <td>None</td>
                     <td>Built-in</td>
-                    <td>pwd</td>
+                    <td><code>pwd</code></td>
                 </tr>
 
                 <tr>
-                    <td>touch</td>
+                    <td><code>touch</code></td>
                     <td>Creates an empty file or updates the timestamp of an existing file</td>
                     <td>-a (change access time only), -m (change modification time only), -t (specify a timestamp)</td>
                     <td>External</td>
-                    <td>touch filename.txt</td>
+                    <td><code>touch filename.txt</code></td>
                 </tr>
 
                 <tr>
@@ -124,35 +124,35 @@
                 </tr>
 
                 <tr>
-                    <td>less/more</td>
+                    <td><code>less/more</code></td>
                     <td>Displays file contents one screen at a time</td>
                     <td>-N (show line numbers), -q (quiet mode), -S (disable line wrapping)</td>
                     <td>External</td>
-                    <td>less filename.txt / more filename.txt</td>
+                    <td><code>less filename.txt / more filename.txt</code></td>
                 </tr>
 
                 <tr>
-                    <td>head</td>
+                    <td><code>head</code></td>
                     <td>Displays the first few lines of a file</td>
                     <td>-n (number of lines to display), -c (number of bytes to display)</td>
                     <td>External</td>
-                    <td>head filename.txt</td>
+                    <td><code>head filename.txt</code></td>
                 </tr>
 
                 <tr>
-                    <td>tail</td>
+                    <td><code>tail</code></td>
                     <td>Displays the last few lines of a file</td>
                     <td>-n (number of lines to display), -f (follow file updates in real time)</td>
                     <td>External</td>
-                    <td>tail filename.txt</td>
+                    <td><code>tail filename.txt</code></td>
                 </tr>
 
                 <tr>
-                    <td>nano</td>
+                    <td><code>nano</code></td>
                     <td>Opens a simple text editor</td>
                     <td>-B (create a backup file), -m (enable mouse support), -c (show cursor position)</td>
                     <td>External</td>
-                    <td>nano filename.txt</td>
+                    <td><code>nano filename.txt</code></td>
                 </tr>
 
             </table>
@@ -261,21 +261,21 @@
                 </tr>
 
                 <tr>
-                    <td>ifconfig</td>
+                    <td><code>ifconfig</code></td>
                     <td>Displays or configures network interfaces (deprecated in some systems)</td>
                     <td>-a (show all interfaces), up (activate an interface), down (deactivate an interface)</td>
                     <td>External</td>
-                    <td>ifconfig</td>
+                    <td><code>ifconfig</code></td>
                 </tr>
-                
+
                 <tr>
-                    <td>ip</td>
+                    <td><code>ip</code></td>
                     <td>Displays and manages network interfaces and routing</td>
                     <td>addr (show IP addresses), link (show network interfaces), route (show routing table)</td>
                     <td>External</td>
-                    <td>ip addr</td>
+                    <td><code>ip addr</code></td>
                 </tr>
-                
+
                 <tr>
                     <td><code>netstat</code></td>
                     <td>Display network connections and statistics</td>
@@ -328,50 +328,96 @@
             </table>
 
 
-            <h2>Disk and System Info</h2>
+            <h2>Disk Operations</h2>
             <table class="ref">
                 <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Options</th>
-                    <th>Type</th>
-                    <th>Usage</th>
-                </tr>
-                <tr>
                     <td><code>df</code></td>
-                    <td>Show disk space usage</td>
+                    <td>Displays available disk space</td>
                     <td>-h (human-readable), -T (file system type)</td>
                     <td>External</td>
                     <td><code>df -h</code></td>
                 </tr>
+
                 <tr>
                     <td><code>du</code></td>
-                    <td>Show directory size</td>
+                    <td>Shows disk usage of files and directories</td>
                     <td>-h (human-readable), -s (summary)</td>
                     <td>External</td>
-                    <td><code>du -sh /path/to/directory</code></td>
+                    <td><code>du -h filename</code></td>
                 </tr>
+
                 <tr>
-                    <td><code>uptime</code></td>
-                    <td>Show system uptime</td>
-                    <td>N/A</td>
+                    <td><code>mount</code></td>
+                    <td>Mounts a file system</td>
+                    <td>-t (file system type), -o (mount options)</td>
                     <td>External</td>
-                    <td><code>uptime</code></td>
+                    <td><code>mount /dev/sdX /mnt</code></td>
                 </tr>
+
                 <tr>
-                    <td><code>uname</code></td>
-                    <td>Display system information</td>
-                    <td>-a (all info), -r (kernel release)</td>
+                    <td><code>umount</code></td>
+                    <td>Unmounts a file system</td>
+                    <td>-f (force unmount), -l (lazy unmount)</td>
                     <td>External</td>
-                    <td><code>uname -a</code></td>
+                    <td><code>umount /mnt</code></td>
                 </tr>
+
                 <tr>
-                    <td><code>free</code></td>
-                    <td>Show memory usage</td>
-                    <td>-h (human-readable), -t (totals)</td>
+                    <td><code>mkfs</code></td>
+                    <td>Formats a partition</td>
+                    <td>-t (specify file system type)</td>
                     <td>External</td>
-                    <td><code>free -h</code></td>
+                    <td><code>mkfs -t ext4 /dev/sdX</code></td>
                 </tr>
+
+                <tr>
+                    <td><code>blkid</code></td>
+                    <td>Displays block device information</td>
+                    <td>None</td>
+                    <td>External</td>
+                    <td><code>blkid</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>fdisk</code></td>
+                    <td>Partition management utility</td>
+                    <td>-l (list partitions)</td>
+                    <td>External</td>
+                    <td><code>fdisk -l</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>parted</code></td>
+                    <td>Manages disk partitions</td>
+                    <td>-l (list devices), mkpart (create partition)</td>
+                    <td>External</td>
+                    <td><code>parted /dev/sdX</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>lsblk</code></td>
+                    <td>Displays information about block devices</td>
+                    <td>-f (file system info), -o NAME,SIZE (custom output)</td>
+                    <td>External</td>
+                    <td><code>lsblk -f</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>tune2fs</code></td>
+                    <td>Adjusts ext2/3/4 file system parameters</td>
+                    <td>-c (max mount count), -i (interval between checks)</td>
+                    <td>External</td>
+                    <td><code>tune2fs -c 1 /dev/sdX</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>sync</code></td>
+                    <td>Flushes file system buffers</td>
+                    <td>None</td>
+                    <td>Built-in</td>
+                    <td><code>sync</code></td>
+                </tr>
+
             </table>
 
 
@@ -421,27 +467,27 @@
                 </tr>
 
                 <tr>
-                    <td>sort</td>
+                    <td><code>sort</code></td>
                     <td>Sorts lines of text files</td>
                     <td>-r (reverse the sort order), -n (numeric sort), -u (unique sort)</td>
                     <td>External</td>
-                    <td>sort filename.txt</td>
+                    <td><code>sort filename.txt</code></td>
                 </tr>
 
                 <tr>
-                    <td>uniq</td>
+                    <td><code>uniq</code></td>
                     <td>Removes duplicate lines from sorted input</td>
                     <td>-c (prefix lines with count), -d (display only duplicates), -u (display unique lines)</td>
                     <td>External</td>
-                    <td>uniq filename.txt</td>
+                    <td><code>uniq filename.txt</code></td>
                 </tr>
 
                 <tr>
-                    <td>wc</td>
+                    <td><code>wc</code></td>
                     <td>Counts lines, words, and characters in a file</td>
                     <td>-l (count lines), -w (count words), -c (count bytes/characters)</td>
                     <td>External</td>
-                    <td>wc filename.txt</td>
+                    <td><code>wc filename.txt</code></td>
                 </tr>
 
             </table>
@@ -493,37 +539,37 @@
                 </tr>
 
                 <tr>
-                    <td>sudo</td>
+                    <td><code>sudo</code></td>
                     <td>Runs a command with superuser privileges</td>
                     <td>-u (run as a specific user), -k (reset cached credentials), -s (run shell as root)</td>
                     <td>External</td>
-                    <td>sudo command_name</td>
+                    <td><code>sudo command_name</code></td>
                 </tr>
 
                 <tr>
-                    <td>uname</td>
+                    <td><code>uname</code></td>
                     <td>Displays system information</td>
                     <td>-a (all system info), -s (kernel name), -r (kernel release), -m (machine hardware name)</td>
                     <td>External</td>
-                    <td>uname -a</td>
+                    <td><code>uname -a</code></td>
                 </tr>
-                
+
                 <tr>
-                    <td>uptime</td>
+                    <td><code>uptime</code></td>
                     <td>Displays system uptime and load averages</td>
                     <td>-p (pretty format), -s (system boot time)</td>
                     <td>External</td>
-                    <td>uptime</td>
+                    <td><code>uptime</code></td>
                 </tr>
-                
+
                 <tr>
-                    <td>hostname</td>
+                    <td><code>hostname</code></td>
                     <td>Displays or sets the system's hostname</td>
                     <td>-f (full hostname), -i (IP address), -d (domain name)</td>
                     <td>External</td>
-                    <td>hostname</td>
+                    <td><code>hostname</code></td>
                 </tr>
-                
+
             </table>
 
 
