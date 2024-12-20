@@ -1,1 +1,2 @@
 - lldb in vscode video tutorial (macOS), (if different needed then also for wsl/Linux)
+- update GettingStartedGit: remove PAT (https) process, and add SSH process 
