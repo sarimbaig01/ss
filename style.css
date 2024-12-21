@@ -511,6 +511,7 @@ video::-webkit-media-controls-overlay-enclosure {
     }
 
     .toc {
+        position: static;
         order: 0; /* Ensure TOC appears first */
         width: 100%; /* Make section take up the full viewport width */
         max-width: 100%; /* Prevent sections from exceeding the screen width */
@@ -521,6 +522,7 @@ video::-webkit-media-controls-overlay-enclosure {
     }
 
     .statement {
+        position: static;
         order: 1; /* Ensure statement appears second */
         width: 100%; /* Make section take up the full viewport width */
         max-width: 100%; /* Prevent sections from exceeding the screen width */
