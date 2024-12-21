@@ -513,7 +513,7 @@ video::-webkit-media-controls-overlay-enclosure {
         box-sizing: border-box; /* Include padding and border in width calculation */
         margin: 0; /* Remove extra margins */
         padding: 10px; /* Consistent padding for both sections */
-        border: 1px solid #ccc; /* Optional: Add a border for consistency */
+        /*border: 1px solid #ccc;*/ /* Optional: Add a border for consistency */
     }
 
     .toc {
