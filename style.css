@@ -535,6 +535,8 @@ video::-webkit-media-controls-overlay-enclosure {
     }
 
     section.toc {
+        position: static; /* Reset to participate in normal document flow */
+        margin-bottom: 20px; /* Add space below the TOC */
         order: 1; /* Appears first */
     }
 
