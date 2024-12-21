@@ -24,10 +24,9 @@
     </div>
 
     <div class="statement">
-
-        <h1>Getting Started with Git</h1>
-        <hr>
-
+        <h1 class="align-with-statement">Getting Started with Git</h1>
+        
+        <section class="statement">
         <h2>
             Introduction
         </h2>
@@ -57,45 +56,81 @@
 </code></pre>
             <p>On macOS (you first need to install Homebrew if you don't have it already): </p>
             <pre class="console"><code>brew install git</code></pre>
-            <h3>Step 2. Configure Git with GitHub</h3>
-            <p>We now need to configure Git to work with our GitHub account.</p>
+            <h3>Step 2. Configure Git to connect to GitHub using SSH</h3>
+            <p>We now need to configure Git to connect with our GitHub account, using the SSH protocol.</p>
 
-            <h4>Step 2a. Generate and use a Personal Access Token (PAT)</h4>
+            <h4>Step 2a. Generate an SSH Key</h4>
             <p>We can use either the SSH or HTTPS protocols to connect Git from our local machine to the remote GitHub
-                server. Both protocols provide a secure connection. We will use HTTPS, primarily for simplicity.
-                To authenticate over HTTPS, we need a Personal Access Token (PAT), a secure alphanumeric code
-                generated from GitHub, used instead of a password for Git operations over HTTPS.</p>
+                server. Both protocols provide a secure connection. We will use SSH, as this will allow continued use
+                without repeated authentication.</p>
 
-            <p>Generate a PAT by following these steps:</p>
+            <p>Generate the SSH key as follows. On the bash terminal, run:</p>
+            <pre class="console"><code>ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
+            <p>When prompted:</p>
             <ul>
-                <li>Visit <a href="https://github.com/settings/tokens" target="_blank">GitHub Personal Access
-                        Tokens</a>.</li>
-                <li>Click <strong>"Generate new token (classic)"</strong>.</li>
-                <li>Select Scopes: Choose <code>repo</code> for full access to repositories.</li>
-                <li>Click <strong>Generate Token</strong> and <strong>save the token securely</strong> (you won’t see it
-                    again).</li>
+                <li>Press <strong>Enter</strong> to save the key in the default location
+                    (<code>~/.ssh/id_ed25519</code>).</li>
+                <li>Leave the paraphrase blank.</li>
             </ul>
 
-            <h4>Step 2b. Configure git with the PAT</h4>
+            <p>After this, two files are created:</p>
+            <ul>
+                <li><code>id_ed25519</code>: Your private key (keep this secure).</li>
+                <li><code>id_ed25519.pub</code>: Your public key (this will be added to GitHub).</li>
+            </ul>
 
-            <p>Run the following commands to configure your Git account details:</p>
 
-            <pre class="console"><code>git config --global user.name "Your GitHub Username"
-git config --global user.email "your_github_email@example.com"
-</code></pre>
+            <h4>Step 2b. Add the Public Key to GitHub</h4>
 
-            <p>The first command sets your name. Remember to put it in quotes! The second sets your email.
-                For this, use the email you used to create your Github account.</p>
+            <p>Follow these steps to add your SSH public key to GitHub:</p>
+            <ol>
+                <li>Copy your public key to the clipboard by running the following command in your terminal:
+                    <pre class="console"><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+                </li>
+                <li>Open GitHub in your browser and log in to your account.</li>
+                <li>Navigate to:
+                    <ul>
+                        <li>Settings (in the menu after you click on your profile picture on the top right of page)</li>
+                        <li>Click on SSH and GPG keys.</li>
+                        <li>Click on New SSH key.</li>
+                    </ul>
+                </li>
+                <li>Add your key:
+                    <ul>
+                        <li>Title: Enter a descriptive title (e.g., "My Laptop - WSL").</li>
+                        <li>Key: Paste your public key.</li>
+                    </ul>
+                </li>
+                <li>Click Add SSH key.</li>
+            </ol>
 
-            <p>Authenticate with GitHub (on first push):</p>
-            <pre class="console"><code>git push origin main</code></pre>
-
-            <p>When prompted for a username, enter your GitHub username.</p>
-            <p>When prompted for a password, enter your Personal Access Token (PAT).</p>
-
-            <p>Cache your credentials to avoid repeated authentication:</p>
-            <pre class="console"><code>git config --global credential.helper cache</code></pre>
-
+            <p>To test the SSH connection, follow these steps:</p>
+            <ol>
+                <li>Open the terminal and run the following command:
+                    <pre class="console"><code>ssh -T git@github.com</code></pre>
+                </li>
+                <li>If the connection is successful, you will see a message similar to the following:
+                    <pre
+                        class="console"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+                </li>
+            </ol>
+            <h4>Step 2c. Configure Git to use SSH</h4>
+            <p>To configure Git to use SSH, follow these steps:</p>
+            <ol>
+                <li>Update your repository's remote URL to use SSH by running the following command in the terminal:
+                    <pre
+                        class="console"><code>git remote set-url origin git@github.com:username/repository.git</code></pre>
+                    <p>Replace <code>username</code> with your GitHub username and <code>repository</code> with the name
+                        of your repository.</p>
+                </li>
+                <li>Verify the updated remote URL by running:
+                    <pre class="console"><code>git remote -v</code></pre>
+                </li>
+                <li>Ensure the output shows the SSH URL format, similar to this:
+                    <pre class="console"><code>origin  git@github.com:username/repository.git (fetch)
+origin  git@github.com:username/repository.git (push)</code></pre>
+                </li>
+            </ol>
 
             <h3>Step 3. Create a repository</h3>
             <p>Create a new directory for the repository:</p>
@@ -104,22 +139,23 @@ cd hello-git
 </code></pre>
 
             <p>Initialize the git repository:</p>
-            <p>The following will create a repository in your current directory. Therefore, make sure to navigate to the
-                place on your computer where you wish to store the repository (using <code>cd</code> etc. and then run
-                the following commands.</p>
+            <p>The following will create a repository in your current directory (hello-git in this case).</p>
             <pre class="console"><code>git init</code></pre>
             <p><code>git init</code> initializes a local repository, allowing git to
                 track changes made in the folder.</p>
 
-            <h3>Step 4 (this is optional if you have just created your first repository). Clone an existing repository
-                (for example if created through the web interface)</h3>
-            <p>For now, you may not need this step as you are creating your first repository. However, at some point you
-                may need to clone a repository provided to you, or that you have created remotely on GitHub, onto your
+            <h3>Step 4 (Optional). Clone an existing repository</h3>
+            <p>For now, you may not need this step as you are creating your first repository. However, at some point
+                you
+                may need to clone a repository provided to you, or that you have created remotely on GitHub, onto
+                your
                 local machine.</p>
             <p>Clone an existing repository:</p>
-            <pre class="console"><code>git clone https://github.com/yourusername/repository-name.git</code></pre>
+            <pre class="console"><code>git clone git@github.com:yourusername/repository-name.git
+            </code></pre>
 
-            <p>Note: GitHub provides a URL for every repository, ending with .git. On GitHub you can find this URL by
+            <p>Note: GitHub provides a URL for every repository, ending with .git. On GitHub you can find this URL
+                by
                 going to your repository page and clicking on the <code>Code</code> drop down menu.</p>
 
             <p>Navigate into the cloned repository:</p>
@@ -186,42 +222,53 @@ git commit -m "Updated message in helloworld.cpp"
                     target="_blank">available here</a>.</p>
             <ul>
                 <li>
-                    <strong>git status</strong> - Tells you the status of your local repository: what files have been
-                    added, deleted, and changed since your last commit. It also shows which changes are in staging and
-                    which ones aren’t. When a change is in staging, it will be included in the next commit. If you have
-                    text coloring enabled, staged changes appear <span style="color: green;">green</span> and unstaged
+                    <strong>git status</strong> - Tells you the status of your local repository: what files have
+                    been
+                    added, deleted, and changed since your last commit. It also shows which changes are in staging
+                    and
+                    which ones aren’t. When a change is in staging, it will be included in the next commit. If you
+                    have
+                    text coloring enabled, staged changes appear <span style="color: green;">green</span> and
+                    unstaged
                     changes appear <span style="color: red;">red</span> (the same colors appear in VSCode).
                 </li>
 
                 <li>
                     <strong>git add &lt;file/folder&gt;</strong> - Stages the specified file or folder. You can use
                     regular expressions to include multiple files or run <code>git add</code> multiple times for
-                    different files. If you stage a file but make changes afterward, it automatically gets unstaged, so
+                    different files. If you stage a file but make changes afterward, it automatically gets unstaged,
+                    so
                     you must run <code>git add</code> again.
                 </li>
 
                 <li>
-                    <strong>git commit</strong> - Commits the changes that were staged. Think of this as logging a new
-                    version of your code with the set of staged changes. Git will open its text editor so that you can
-                    add a message describing the changes. Writing clear and informative commit messages can help your
-                    collaborators (and your future self) understand what was changed in previous commits. Note that all
+                    <strong>git commit</strong> - Commits the changes that were staged. Think of this as logging a
+                    new
+                    version of your code with the set of staged changes. Git will open its text editor so that you
+                    can
+                    add a message describing the changes. Writing clear and informative commit messages can help
+                    your
+                    collaborators (and your future self) understand what was changed in previous commits. Note that
+                    all
                     commits only exist on your local copy until you push them to the remote repository.
                 </li>
 
                 <li>
-                    <strong>git push</strong> - Pushes all local commits since your last push to the remote repository.
+                    <strong>git push</strong> - Pushes all local commits since your last push to the remote
+                    repository.
                     This allows collaborators to access your changes. If someone else has made changes to the remote
-                    repository while you were working, Git may require you to perform a <code>git pull</code> before you
+                    repository while you were working, Git may require you to perform a <code>git pull</code> before
+                    you
                     can push your changes.
                 </li>
 
                 <li>
                     <strong>git pull</strong> - Pulls all commits from the remote repository that your local version
-                    doesn’t have. This retrieves any changes that others working on your project have pushed since the
+                    doesn’t have. This retrieves any changes that others working on your project have pushed since
+                    the
                     last time you pulled. You should commit all your changes before doing this to avoid losing them.
                 </li>
             </ul>
-
             </section>
     </div>
 </body>

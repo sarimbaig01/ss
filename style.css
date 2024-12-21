@@ -2,7 +2,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5dc; /* Light beige background */
+    background-color: #f5f5dc;
+    /* Light beige background */
     margin: 0;
     padding: 20px;
     display: flex;
@@ -10,16 +11,71 @@ body {
     min-height: 100vh;
 }
 
+section.statement {
+    border: 1px solid #ccc; /* Adds borders on all sides */
+    padding: 20px;          /* Adds spacing inside the section */
+    margin-top: 0;          /* Removes only the top margin */
+    margin-right: 20px;     /* Keeps the right margin */
+    margin-bottom: 20px;    /* Keeps the bottom margin */
+    margin-left: 20px;      /* Keeps the left margin */
+}
+
+section.statement h2 {
+    margin: 0; /* Removes default margins for all child elements */
+    padding: 0; /* Removes default padding for all child elements */
+}
+
+h1 + section.statement {
+    margin-top: 0; /* Ensures no extra space between the h1 and the section */
+}
+
+
+h1.align-with-statement {
+    margin-left: 20px; /* Matches the section's margin */
+}
+
+
+h1 {
+    color: #4E342E;
+    /* Dark brown */
+}
+
+h2 {
+    color: #6A5ACD;
+    /* Slate blue */
+}
+
+
+h3 {
+    color: #556B2F;
+    /* Dark olive green */
+}
+
+h4 {
+    color: #D2691E;
+    /* Rusty orange */
+}
+
+.no-indent {
+    margin-left: 0;
+    padding-left: 0;
+}
+
 code {
-        font-family: Consolas, "Courier New", monospace;
+    font-family: Consolas, "Courier New", monospace;
 }
 
 .code-container {
-    padding: 0px; /* Reduced padding to 10 pixels */
-    width: 90%; /* Make the container wider */
-    max-width: 1000px; /* Increase max width */
-    margin: 20px 0; /* Remove auto margins and reduce to just vertical margins */
-    left: 5%; /* Move the container closer to the left of the screen */
+    padding: 0px;
+    /* Reduced padding to 10 pixels */
+    width: 90%;
+    /* Make the container wider */
+    max-width: 1000px;
+    /* Increase max width */
+    margin: 20px 0;
+    /* Remove auto margins and reduce to just vertical margins */
+    left: 5%;
+    /* Move the container closer to the left of the screen */
     /*border: 1px solid #ccc; /* Thin border, slightly darker than body's background color */
 }
 
@@ -86,7 +142,8 @@ code {
     margin-top: 20px;
 }
 
-.ptable th, .ptable td {
+.ptable th,
+.ptable td {
     border-bottom: 1px solid #000;
     padding: 10px;
     text-align: left;
@@ -122,7 +179,8 @@ code {
     margin-right: auto;
 }
 
-.dtable th, .dtable td {
+.dtable th,
+.dtable td {
     border: 1px solid grey;
     padding: 8px;
     text-align: left;
@@ -135,29 +193,37 @@ code {
 /* CSS for table with class atable */
 table.atable {
     border-collapse: collapse;
-    width: 100%; /* Optional: Set the table to take the full width of its container */
+    width: 100%;
+    /* Optional: Set the table to take the full width of its container */
 }
 
-table.atable, 
+table.atable,
 table.atable td {
-    border: 1px solid #000; /* Thin dark border */
+    border: 1px solid #000;
+    /* Thin dark border */
 }
 
 table.atable th {
-    border: 1px solid #000; /* Add a thin dark border to the table headers */
-    text-align: left; /* Left justify the header text */
-    padding: 8px; /* Add padding for better readability */
+    border: 1px solid #000;
+    /* Add a thin dark border to the table headers */
+    text-align: left;
+    /* Left justify the header text */
+    padding: 8px;
+    /* Add padding for better readability */
     font-weight: normal;
 }
 
 table.atable td {
-    padding: 8px; /* Optional: Add padding to table cells */
-    text-align: left; /* Optional: Align text to the left */
+    padding: 8px;
+    /* Optional: Add padding to table cells */
+    text-align: left;
+    /* Optional: Align text to the left */
 }
 
 
 .statement {
-    margin-right: 270px; /* Increase right margin to make more space for the TOC */
+    margin-right: 270px;
+    /* Increase right margin to make more space for the TOC */
 }
 
 legend {
@@ -166,15 +232,20 @@ legend {
 }
 
 fieldset {
-    border: 2px solid burgundy; /* Adjust the border width if needed */
-    color: burgundy; /* Set the text color inside the fieldset to burgundy */
+    border: 2px solid burgundy;
+    /* Adjust the border width if needed */
+    color: burgundy;
+    /* Set the text color inside the fieldset to burgundy */
 }
 
 .toc {
     position: fixed;
-    top: 100px; /* Adjust based on your preference */
-    right: 40px; /* Move the TOC a little towards the right */
-    width: 220px; /* Adjust the width as necessary */
+    top: 100px;
+    /* Adjust based on your preference */
+    right: 40px;
+    /* Move the TOC a little towards the right */
+    width: 220px;
+    /* Adjust the width as necessary */
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
@@ -182,40 +253,58 @@ fieldset {
 }
 
 .toc a {
-    display: block; /* Ensure each link takes up the full width and appears on its own line */
-    margin: 5px 0; /* Add some margin for spacing between links */
-    text-decoration: underline; /* Underline the links */
-    color: black; /* Set link color to black */
-    position: relative; /* Enable positioning of pseudo-element */
-    padding-left: 20px; /* Reduce padding to bring text closer to bullet */
+    display: block;
+    /* Ensure each link takes up the full width and appears on its own line */
+    margin: 5px 0;
+    /* Add some margin for spacing between links */
+    text-decoration: underline;
+    /* Underline the links */
+    color: black;
+    /* Set link color to black */
+    position: relative;
+    /* Enable positioning of pseudo-element */
+    padding-left: 20px;
+    /* Reduce padding to bring text closer to bullet */
 }
 
 .toc a::before {
-    content: "•"; /* Bullet point character */
-    position: absolute; /* Position relative to the link */
-    left: 5px; /* Adjust distance from the link text */
-    color: black; /* Same color as the link text */
+    content: "•";
+    /* Bullet point character */
+    position: absolute;
+    /* Position relative to the link */
+    left: 5px;
+    /* Adjust distance from the link text */
+    color: black;
+    /* Same color as the link text */
 }
 
 .toc a.sub-item {
-    padding-left: 40px; /* Indent sub-items more */
+    padding-left: 40px;
+    /* Indent sub-items more */
 }
 
 .toc a.sub-item::before {
-    content: "•"; /* Bullet point character */
-    position: absolute; /* Position relative to the link */
-    left: 25px; /* Adjust distance from the link text to align bullets */
-    color: black; /* Same color as the link text */
+    content: "•";
+    /* Bullet point character */
+    position: absolute;
+    /* Position relative to the link */
+    left: 25px;
+    /* Adjust distance from the link text to align bullets */
+    color: black;
+    /* Same color as the link text */
 }
 
 .toc a:hover {
-    text-decoration: underline; /* Underline links on hover for better visibility */
+    text-decoration: underline;
+    /* Underline links on hover for better visibility */
 }
 
 
 img {
-    max-width: 100%; /* Make images responsive */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%;
+    /* Make images responsive */
+    height: auto;
+    /* Maintain aspect ratio */
 }
 
 .toc-toggle {
@@ -239,24 +328,29 @@ table.ref {
 }
 
 /* Table Borders */
-table.ref th, 
+table.ref th,
 table.ref td {
-    border: 1px solid #ccc; /* Visible border */
+    border: 1px solid #ccc;
+    /* Visible border */
     padding: 8px 12px;
-    text-align: left; /* Left-aligned content */
+    text-align: left;
+    /* Left-aligned content */
 }
 
 /* Header Styling */
 table.ref th {
-    background-color: #f2f2f2; /* Light grey background */
+    background-color: #f2f2f2;
+    /* Light grey background */
     font-weight: bold;
 }
 
 
 .video-container {
     display: flex;
-    justify-content: center; /* Center the video horizontally */
-    margin: 20px 0; /* Add margin for spacing */
+    justify-content: center;
+    /* Center the video horizontally */
+    margin: 20px 0;
+    /* Add margin for spacing */
 }
 
 
@@ -281,15 +375,18 @@ table.ref th {
 }
 
 .prompt {
-    color: #0ff; /* Cyan for prompt */
+    color: #0ff;
+    /* Cyan for prompt */
 }
 
 .command {
-    color: #0f0; /* Green for commands */
+    color: #0f0;
+    /* Green for commands */
 }
 
 .output {
-    color: #bbb; /* Light grey for output */
+    color: #bbb;
+    /* Light grey for output */
 }
 
 /*figure {
@@ -313,18 +410,25 @@ figcaption {
 
 figure {
     display: flex;
-    flex-direction: column; /* Arrange content vertically */
-    align-items: center; /* Center content horizontally */
-    margin: 20px auto; /* Center horizontally and add some vertical margin */
-    text-align: center; /* Center text within the figure */
-    max-width: 100%; /* Ensure figures do not exceed container width */
+    flex-direction: column;
+    /* Arrange content vertically */
+    align-items: center;
+    /* Center content horizontally */
+    margin: 20px auto;
+    /* Center horizontally and add some vertical margin */
+    text-align: center;
+    /* Center text within the figure */
+    max-width: 100%;
+    /* Ensure figures do not exceed container width */
 }
 
 figcaption {
-    margin-top: 10px; /* Add some space between the image/video and the caption */
+    margin-top: 10px;
+    /* Add some space between the image/video and the caption */
     font-size: 14px;
     color: #555;
-    text-align: center; /* Center the caption text */
+    text-align: center;
+    /* Center the caption text */
 }
 
 figure.no-center {
@@ -336,7 +440,8 @@ figure.no-center {
 
 .flex-container {
     display: flex;
-    gap: 0; /* Removes space between code wrappers */
+    gap: 0;
+    /* Removes space between code wrappers */
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
@@ -344,27 +449,40 @@ figure.no-center {
 
 .flex-container .code-wrapper {
     display: flex;
-    flex-direction: column; /* Stacks heading and code container vertically */
+    flex-direction: column;
+    /* Stacks heading and code container vertically */
     flex: 1;
-    max-width: 50%; /* Adjusts to allow two containers to fit side-by-side */
+    max-width: 50%;
+    /* Adjusts to allow two containers to fit side-by-side */
 }
 
 .flex-container .code-container {
-    padding: 10px !important; /* Override global padding */
-    width: auto !important; /* Override global width */
-    max-width: 100% !important; /* Override global max-width */
-    margin: 0 !important; /* Override global margin */
-    left: auto !important; /* Override global left positioning */
-    border-radius: 5px; /* Add border radius */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    padding: 10px !important;
+    /* Override global padding */
+    width: auto !important;
+    /* Override global width */
+    max-width: 100% !important;
+    /* Override global max-width */
+    margin: 0 !important;
+    /* Override global margin */
+    left: auto !important;
+    /* Override global left positioning */
+    border-radius: 5px;
+    /* Add border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
 }
 
 
 .flex-container .code-container pre {
-    margin: 0; /* Removes default margin */
-    font-family: Consolas, Monaco, 'Courier New', monospace; /* Sets a monospace font for code */
-    overflow: auto; /* Adds scrolling only to the <pre> element */
-    padding: 0; /* Removes extra padding to avoid double scroll */
+    margin: 0;
+    /* Removes default margin */
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    /* Sets a monospace font for code */
+    overflow: auto;
+    /* Adds scrolling only to the <pre> element */
+    padding: 0;
+    /* Removes extra padding to avoid double scroll */
     height: 100%;
 }
 
@@ -386,33 +504,43 @@ video::-webkit-media-controls-overlay-enclosure {
     }
 
     .code-container {
-        width: 100%; /* Full width on small screens */
-        padding: 5px; /* Reduce padding on small screens */
-        margin: 10px 0; /* Reduce margin on small screens */
-        left: 0; /* Remove left offset on small screens */
+        width: 100%;
+        /* Full width on small screens */
+        padding: 5px;
+        /* Reduce padding on small screens */
+        margin: 10px 0;
+        /* Reduce margin on small screens */
+        left: 0;
+        /* Remove left offset on small screens */
     }
-    
+
     .toc {
         position: fixed;
-        top: 100px;         /* Adjust based on preference */
-        right: 400px;      /* Increased distance to avoid overlap */
-        width: 220px;      /* Width of the TOC */
+        top: 100px;
+        /* Adjust based on preference */
+        right: 400px;
+        /* Increased distance to avoid overlap */
+        width: 220px;
+        /* Width of the TOC */
         padding: 10px;
         border: 1px solid #ccc;
         background-color: #f9f9f9;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    
+
 
     .statement {
-        margin-right: 0; /* Remove the right margin */
+        margin-right: 0;
+        /* Remove the right margin */
     }
-    
+
     .copy-btn {
-        position: relative; /* Adjust positioning for small screens */
+        position: relative;
+        /* Adjust positioning for small screens */
         top: 0;
         right: 0;
-        margin-top: 10px; /* Add margin for spacing */
+        margin-top: 10px;
+        /* Add margin for spacing */
     }
 }
 
@@ -425,18 +553,25 @@ video::-webkit-media-controls-overlay-enclosure {
     }
 
     .code-container {
-        width: 95%; /* Slightly narrower on tablets */
-        padding: 10px; /* Moderate padding on tablets */
-        margin: 15px 0; /* Moderate margin on tablets */
-        left: 2.5%; /* Adjust left offset on tablets */
+        width: 95%;
+        /* Slightly narrower on tablets */
+        padding: 10px;
+        /* Moderate padding on tablets */
+        margin: 15px 0;
+        /* Moderate margin on tablets */
+        left: 2.5%;
+        /* Adjust left offset on tablets */
     }
-    
+
     .toc {
-        right: 10px; /* Adjust TOC position for tablets */
-        width: 200px; /* Adjust width for tablets */
+        right: 10px;
+        /* Adjust TOC position for tablets */
+        width: 200px;
+        /* Adjust width for tablets */
     }
 
     .statement {
-        margin-right: 150px; /* Adjust right margin for tablets */
+        margin-right: 150px;
+        /* Adjust right margin for tablets */
     }
 }
