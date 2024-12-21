@@ -501,49 +501,29 @@ video::-webkit-media-controls-overlay-enclosure {
 @media only screen and (max-width: 600px) {
     body {
         padding: 10px;
-    }
-
-    .code-container {
-        width: 100%;
-        /* Full width on small screens */
-        padding: 5px;
-        /* Reduce padding on small screens */
-        margin: 10px 0;
-        /* Reduce margin on small screens */
-        left: 0;
-        /* Remove left offset on small screens */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align child elements to the left */
     }
 
     .toc {
-        position: static;
-        top: 100px;
-        /* Adjust based on preference */
-        right: 400px;
-        /* Increased distance to avoid overlap */
-        width: 220px;
-        /* Width of the TOC */
+        position: static; /* Use normal document flow */
+        width: auto; /* Let it take up natural width */
         padding: 10px;
+        margin: 0; /* Align it with the left of the screen */
         border: 1px solid #ccc;
         background-color: #f9f9f9;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-
     .statement {
-        margin-right: 0;
-        /* Remove the right margin */
-    }
-
-    .copy-btn {
-        position: relative;
-        /* Adjust positioning for small screens */
-        top: 0;
-        right: 0;
-        margin-top: 10px;
-        /* Add margin for spacing */
+        width: auto; /* Let it take up natural width */
+        margin: 0; /* Align it with the left of the screen */
+        padding: 10px;
+        border: 1px solid #ccc; /* Optional: match TOC border styling */
+        background-color: #fff; /* Optional: match TOC background styling */
     }
 }
-
 
 
 /* Media queries for tablets */
