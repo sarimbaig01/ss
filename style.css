@@ -503,29 +503,32 @@ video::-webkit-media-controls-overlay-enclosure {
         margin: 0; /* Remove margins */
         padding: 0; /* Remove padding */
         display: flex;
-        flex-direction: column;
-        align-items: stretch; /* Ensure sections span the full width */
-        width: 100vw; /* Fit body to viewport width */
+        flex-direction: column; /* Stack children vertically */
+        align-items: stretch; /* Ensure sections span full width */
+        width: 100vw; /* Fit body to the viewport width */
         box-sizing: border-box; /* Include padding in width calculations */
         overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
     .toc,
     .statement {
-        width: 100%; /* Ensure sections take the full viewport width */
+        width: 100%; /* Make sections take up the full width */
         box-sizing: border-box; /* Include padding in width calculation */
-        margin: 0; /* Remove extra margins */
-        padding: 15px; /* Adjust padding for comfortable spacing */
+        margin: 0; /* Remove margins to avoid unintended gaps */
+        padding: 15px; /* Balanced padding for readability */
     }
 
     .toc {
-        background-color: #f9f9f9; /* Optional: Distinct background */
+        position: relative; /* Ensure TOC flows normally */
+        background-color: #f9f9f9; /* Optional: Distinct background for TOC */
     }
 
     .statement {
-        background-color: #ffffff; /* Optional: Different background */
+        position: relative; /* Ensure statement flows normally */
+        background-color: #fff; /* Optional: Distinct background for statement */
     }
 }
+
 
 
 
