@@ -510,9 +510,19 @@ video::-webkit-media-controls-overlay-enclosure {
         overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
-    .statement,
     .toc {
-        width: 100%; /* Make sections take up the full viewport width */
+        order: 0; /* Ensure TOC appears first */
+        width: 100%; /* Make section take up the full viewport width */
+        max-width: 100%; /* Prevent sections from exceeding the screen width */
+        box-sizing: border-box; /* Include padding in width calculation */
+        margin: 0; /* Remove extra margins */
+        padding: 10px; /* Add padding for readability */
+        background-color: #fff; /* Optional: Uniform background */
+    }
+
+    .statement {
+        order: 1; /* Ensure statement appears second */
+        width: 100%; /* Make section take up the full viewport width */
         max-width: 100%; /* Prevent sections from exceeding the screen width */
         box-sizing: border-box; /* Include padding in width calculation */
         margin: 0; /* Remove extra margins */
@@ -520,6 +530,7 @@ video::-webkit-media-controls-overlay-enclosure {
         background-color: #fff; /* Optional: Uniform background */
     }
 }
+
 
 
 
