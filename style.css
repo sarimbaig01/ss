@@ -530,6 +530,7 @@ video::-webkit-media-controls-overlay-enclosure {
         margin: 0; /* Remove extra margins */
         padding: 10px; /* Add padding for readability */
         background-color: #fff; /* Optional: Uniform background */
+        border: none;
     }
 }
 
