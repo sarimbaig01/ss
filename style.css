@@ -116,7 +116,7 @@ code {
 }
 
 .back-link {
-    position: static;
+    position: fixed;
     z-index: 100;
     cursor: pointer;
     background-color: #373832;
