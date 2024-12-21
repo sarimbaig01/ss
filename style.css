@@ -505,7 +505,7 @@ video::-webkit-media-controls-overlay-enclosure {
         display: flex;
         flex-direction: column; /* Stack sections vertically */
         align-items: stretch; /* Ensure sections span full width */
-        width: 100%; /* Fit body to viewport width */
+        width: 95%; /* Fit body to viewport width */
         box-sizing: border-box; /* Include padding in width calculations */
         overflow-x: hidden; /* Prevent horizontal scrolling */
     }
