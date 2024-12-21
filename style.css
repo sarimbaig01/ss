@@ -500,30 +500,33 @@ video::-webkit-media-controls-overlay-enclosure {
 /* Media queries for mobile devices */
 @media only screen and (max-width: 600px) {
     body {
-        padding: 10px;
+        margin: 0; /* Remove margins */
+        padding: 0; /* Remove padding */
         display: flex;
         flex-direction: column;
-        align-items: flex-start; /* Align child elements to the left */
-        width: 100vw;
+        align-items: stretch; /* Ensure sections span the full width */
+        width: 100vw; /* Fit body to viewport width */
+        box-sizing: border-box; /* Include padding in width calculations */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
     .toc,
     .statement {
-        width: 100%; /* Make both sections take up the full available width */
-        box-sizing: border-box; /* Include padding and border in width calculation */
+        width: 100%; /* Ensure sections take the full viewport width */
+        box-sizing: border-box; /* Include padding in width calculation */
         margin: 0; /* Remove extra margins */
-        padding: 10px; /* Consistent padding for both sections */
-        /*border: 1px solid #ccc;*/ /* Optional: Add a border for consistency */
+        padding: 15px; /* Adjust padding for comfortable spacing */
     }
 
     .toc {
-        background-color: #f9f9f9; /* Optional: Keep TOC distinct with a light background */
+        background-color: #f9f9f9; /* Optional: Distinct background */
     }
 
     .statement {
-        background-color: #fff; /* Optional: Separate statement visually */
+        background-color: #ffffff; /* Optional: Different background */
     }
 }
+
 
 
 /* Media queries for tablets */
