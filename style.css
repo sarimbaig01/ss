@@ -503,46 +503,24 @@ video::-webkit-media-controls-overlay-enclosure {
         margin: 0; /* Remove margins */
         padding: 0; /* Remove padding */
         display: flex;
-        flex-direction: column; /* Stack children vertically */
+        flex-direction: column; /* Stack sections vertically */
         align-items: stretch; /* Ensure sections span full width */
-        width: 100vw; /* Fit body to the viewport width */
+        width: 100%; /* Fit body to viewport width */
         box-sizing: border-box; /* Include padding in width calculations */
         overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
-    .back-link {
-        position: absolute; /* Avoid fixed positioning for mobile */
-        left: 10px; /* Align it with mobile screen layout */
-        top: 10px; /* Adjust to fit within the mobile layout */
-        right: auto; /* Remove unnecessary right offset */
-        padding: 8px; /* Slightly smaller padding for mobile */
-        box-sizing: border-box; /* Ensure padding does not overflow */
-    }
-
-    .back-link.top-right,
-    .back-link.bottom-right {
-        right: auto; /* Reset right positioning for mobile */
-        left: 10px; /* Align to the left edge for consistency */
-    }
-
-    .toc,
-    .statement {
-        width: 100%; /* Make sections take up the full width */
-        box-sizing: border-box; /* Include padding in width calculation */
-        margin: 0; /* Remove margins to avoid unintended gaps */
-        padding: 15px; /* Balanced padding for readability */
-    }
-
+    .statement,
     .toc {
-        position: relative; /* Ensure TOC flows normally */
-        background-color: #f9f9f9; /* Optional: Distinct background for TOC */
-    }
-
-    .statement {
-        position: relative; /* Ensure statement flows normally */
-        background-color: #fff; /* Optional: Distinct background for statement */
+        width: 100%; /* Make sections take up the full viewport width */
+        max-width: 100%; /* Prevent sections from exceeding the screen width */
+        box-sizing: border-box; /* Include padding in width calculation */
+        margin: 0; /* Remove extra margins */
+        padding: 10px; /* Add padding for readability */
+        background-color: #fff; /* Optional: Uniform background */
     }
 }
+
 
 
 
