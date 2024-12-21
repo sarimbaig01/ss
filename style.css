@@ -500,31 +500,28 @@ video::-webkit-media-controls-overlay-enclosure {
 /* Media queries for mobile devices */
 @media only screen and (max-width: 600px) {
     body {
-        margin: 0; /* Remove body margins */
-        padding: 0; /* Remove body padding */
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        align-items: stretch; /* Ensure children stretch to fit the screen width */
-        width: 100vw; /* Ensure the body width matches the viewport width */
-        box-sizing: border-box; /* Include padding and borders in width calculations */
-        overflow-x: hidden; /* Prevent horizontal scrolling */
+        align-items: flex-start; /* Align child elements to the left */
+        width: 100vw;
     }
 
     .toc,
     .statement {
-        width: 100%; /* Make both sections take up the full viewport width */
-        box-sizing: border-box; /* Ensure padding and borders are included in width */
-        margin: 0; /* Remove margins */
-        padding: 10px; /* Add padding for content spacing */
-        border: 1px solid #ccc; /* Optional: Add borders for structure */
+        width: 100%; /* Make both sections take up the full available width */
+        box-sizing: border-box; /* Include padding and border in width calculation */
+        margin: 0; /* Remove extra margins */
+        padding: 10px; /* Consistent padding for both sections */
+        border: 1px solid #ccc; /* Optional: Add a border for consistency */
     }
 
     .toc {
-        background-color: #f9f9f9; /* Optional: Different background for clarity */
+        background-color: #f9f9f9; /* Optional: Keep TOC distinct with a light background */
     }
 
     .statement {
-        background-color: #fff; /* Optional: Different background for clarity */
+        background-color: #fff; /* Optional: Separate statement visually */
     }
 }
 
