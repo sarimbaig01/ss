@@ -535,12 +535,7 @@ video::-webkit-media-controls-overlay-enclosure {
     }
 }
 
-
-
-
-
-
-/* Media queries for tablets */
+/* Media queries for tablets 
 @media only screen and (min-width: 601px) and (max-width: 900px) {
     body {
         padding: 15px;
@@ -548,40 +543,17 @@ video::-webkit-media-controls-overlay-enclosure {
 
     .code-container {
         width: 95%;
-        /* Slightly narrower on tablets */
         padding: 10px;
-        /* Moderate padding on tablets */
         margin: 15px 0;
-        /* Moderate margin on tablets */
         left: 2.5%;
-        /* Adjust left offset on tablets */
     }
 
     .toc {
         right: 10px;
-        /* Adjust TOC position for tablets */
         width: 200px;
-        /* Adjust width for tablets */
     }
 
     .statement {
         margin-right: 150px;
-        /* Adjust right margin for tablets */
     }
-}
-
-/* For mobile or narrow screens */
-@media only screen and (max-width: 600px) {
-    body {
-        display: flex;
-        flex-direction: column;
-    }
-
-    section.toc {
-        order: 1; /* Appears first */
-    }
-
-    section.statement {
-        order: 2; /* Appears second */
-    }
-}
+}*/
