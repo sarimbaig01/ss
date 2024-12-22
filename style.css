@@ -497,47 +497,46 @@ video::-webkit-media-controls-overlay-enclosure {
 }
 
 
-/* Media queries for mobile devices */
+/* Media queries for mobile devices 
 @media only screen and (max-width: 600px) {
     body {
-        margin: 0; /* Remove margins */
-        padding: 0; /* Remove padding */
+        margin: 0;
+        padding: 0;
         display: flex;
-        flex-direction: column; /* Stack sections vertically */
-        align-items: stretch; /* Ensure sections span full width */
-        width: 95%; /* Fit body to viewport width */
-        box-sizing: border-box; /* Include padding in width calculations */
-        overflow-x: hidden; /* Prevent horizontal scrolling */
+        flex-direction: column;
+        align-items: stretch;
+        width: 95%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
-    div.toc{
-        display:none;
+    div.toc {
+        display: none;
     }
 
     section.toc {
         position: static;
-        order: 0; /* Ensure TOC appears first */
-        width: 100%; /* Make section take up the full viewport width */
-        max-width: 100%; /* Prevent sections from exceeding the screen width */
-        box-sizing: border-box; /* Include padding in width calculation */
-        margin: 0; /* Remove extra margins */
-        padding: 10px; /* Add padding for readability */
-        background-color: #fff; /* Optional: Uniform background */
+        order: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 10px;
+        background-color: #fff;
     }
-
 
     section.statement {
         position: static;
-        order: 1; /* Ensure statement appears second */
-        width: 100%; /* Make section take up the full viewport width */
-        max-width: 100%; /* Prevent sections from exceeding the screen width */
-        box-sizing: border-box; /* Include padding in width calculation */
-        margin: 0; /* Remove extra margins */
-        padding: 10px; /* Add padding for readability */
-        background-color: #fff; /* Optional: Uniform background */
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 10px;
+        background-color: #fff;
         border: none;
     }
-}
+}*/
 
 /* Media queries for tablets 
 @media only screen and (min-width: 601px) and (max-width: 900px) {

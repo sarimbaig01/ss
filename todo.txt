@@ -1,2 +1,3 @@
 - lldb in vscode video tutorial (add on page) (for macOS and Linux if different needed)
 - update GettingStartedGit: remove PAT (https) process, and add SSH process 
+- make the site work for mobiles 
