@@ -1,0 +1,16 @@
+Structure: 
+index.html sections: 
+
+    A -- Pre - Assignment 0:
+       WSL.html (includes VSCode integration, g++ and lldb installations)
+
+    B -- Assignment 0 / BashRef.html
+
+    C -- Post - Assignment 0:  
+        GettingStartedGit.html / GitRef.html
+        GettingStartedLLDB.html (includes an example with LLDB)
+               
+    D -- Assignment 1
+    E -- Assignment 2
+    F -- Assignment 3
+    G -- Assignment 4?
