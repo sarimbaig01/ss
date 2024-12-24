@@ -73,7 +73,10 @@
                 simple username (such as your first name) and a short and memorable password.</p>
 
             <p>Launch Ubuntu, follow the on-screen prompts, and complete the initial configuration.</p>
+
             <pre class="console"><code>ubuntu</code></pre>
+
+            <p><strong>You are now in a Bash terminal using the Bash shell.</strong></p>
 
 
             <h3>Access Files</h3>
@@ -151,14 +154,16 @@ sudo apt install g++ lldb</code></pre>
             <h3>Compiling a Simple C++ Program</h3>
             <p>Follow these steps to create and compile a simple C++ program (e.g., <code>helloworld.cpp</code>) from
                 WSL within VS Code:</p>
-            <p>1. Open a new terminal within VSCode. In the terminal, create a folder named <code>hello_world</code> to organize your files:</p>
+            <p>1. Open a new terminal within VSCode. In the terminal, create a folder named <code>hello_world</code> to
+                organize your files:</p>
             <pre class="console"><code>mkdir hello_world</code></pre>
             <p>Navigate into the folder using:</p>
             <pre class="console"><code>cd hello_world</code></pre>
 
             <p>2. Open VS Code connected to WSL, and inside the <code>hello_world</code> folder, create a file named
                 <code>helloworld.cpp</code>. Save the file by pressing <code>Ctrl + S</code>. If you encounter issues
-                saving the file, see the section below on file permissions.</p>
+                saving the file, see the section below on file permissions.
+            </p>
 
             <p>3. Compile the program using the following
                 command:</p>
@@ -174,8 +179,10 @@ sudo apt install g++ lldb</code></pre>
                 update the file's ownership. Run the following command in the terminal to assign ownership of the file
                 to your user:</p>
             <pre class="console"><code>sudo chown your_username:your_username helloworld.cpp</code></pre>
-            <p><code>chown</code> stands for <strong>change ownership</strong>; it modifies the ownership of a file or directory, assigning it to a specified user and/or group.</p>
-            <p>Replace <code>your_username</code> with your WSL (Ubuntu) username. After this, you should be able to save and
+            <p><code>chown</code> stands for <strong>change ownership</strong>; it modifies the ownership of a file or
+                directory, assigning it to a specified user and/or group.</p>
+            <p>Replace <code>your_username</code> with your WSL (Ubuntu) username. After this, you should be able to
+                save and
                 compile the file without any issues.</p>
 
 
