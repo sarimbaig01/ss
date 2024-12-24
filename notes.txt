@@ -8,7 +8,7 @@ index.html sections:
 
     C -- Post - Assignment 0:  
         GettingStartedGit.html / GitRef.html
-        GettingStartedLLDB.html (includes an example with LLDB)
+        LLDB.html (includes an example with LLDB)
                
     D -- Assignment 1
     E -- Assignment 2
