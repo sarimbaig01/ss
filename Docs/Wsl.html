@@ -16,45 +16,171 @@
 <body>
     <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
 
-
     <div class="statement">
         <h1 class="align-with-statement">Windows Subsystem for Linux (WSL)</h1>
         <section class="statement">
             <h2>Introduction</h2>
-            <p> What is Windows Subsystem for Linux (WSL)? / Why do Windows user need to use it in this module?</p>
+            <p>Windows Subsystem for Linux (WSL) allows users to run a Linux environment directly on Windows, providing
+                seamless integration between the two systems. It is designed for developers and power users who need
+                Linux tools and commands while working in a Windows environment.</p>
+            <p>WSL has two versions: WSL1 and WSL2. WSL2 is the newer, faster version that uses a lightweight virtual
+                machine (VM) architecture running on a hypervisor. A <strong>hypervisor</strong> is a software layer
+                that allows
+                multiple operating systems to share the same physical hardware. It provides virtualization, which means
+                the Linux kernel runs in a VM but integrates so seamlessly that users experience it as part of Windows.
+            </p>
+            <p>Unlike traditional virtual machines, WSL2 is optimized for performance and usability, so it feels like
+                native Linux without the need for dual-boot setups. The main advantage is that you can switch between
+                Windows and Linux tools instantly, with shared file access.</p>
+            <p>WSL2 is available on the following Windows versions:
+            <ul>
+                <li>Windows 10 Version 1903 (Build 18362) or later (Pro, Enterprise, or Education editions).</li>
+                <li>Windows 11 (all editions).</li>
+            </ul>
+            </p>
+
+            <h3>Why Do We Need WSL for this Course?</h3>
+            <p>This course explores operating systems concepts, such as process management, threading, memory
+                management, and scheduling algorithms, which are deeply tied to Unix-based systems. Unix environments
+                like Linux provide the tools and architecture necessary to interact directly with these underlying
+                concepts.</p>
+            <p>Linux is a good and widely used choice because it is open-source, powerful, and versatile. Its system
+                design makes it ideal for learning core operating systems concepts through direct, hands-on experience.
+                Additionally, Linux is heavily used in the software development industry, cloud environments, and server
+                management, making it an essential skill for most engineers.</p>
+
             <h2>Installing WSL and Ubuntu</h2>
-            <p> The steps. Where are the files on windows? Where are files on Ubuntu? Installing g++ and lldb on Ubuntu.</p>
-            <h2>Installing the WSL extension on VSCode</h2>
-            <p>How to use the Ubuntu subsystem from within VSCode?</p>
+            <p>To use WSL, you first need to install and set up the environment on your Windows system. Below are the
+                steps to ensure everything is ready.</p>
 
-            <!--
+            <h3>Check System Requirements</h3>
+            <p>Before installing WSL, verify that your system meets the requirements. This step ensures compatibility
+                and avoids issues during installation.</p>
+
+            <p> Note: Virtualization must also be enabled in your BIOS (this is enabled by default in most modern PCs;
+                therefore, it is not explained below. If, however, you run into this issue, please let me know).</p>
+
+            <h3>Enable WSL</h3>
+            <p>Enabling WSL sets up the Linux subsystem on your Windows machine. This command automates the installation
+                process.</p>
+            <pre class="console"><code>wsl --install</code></pre>
+            <p>This command installs WSL, sets WSL 2 as the default version, and installs the default Linux distribution
+                (e.g., Ubuntu).</p>
+
+            <h3>Complete Linux Distribution Setup</h3>
+            <p>Once WSL is installed, you need to configure the Linux distribution. This includes setting up your
+                username and password for the Ubuntu environment. When prompted for a username and password, use a
+                simple username (such as your first name) and a short and memorable password.</p>
+
+            <p>Launch Ubuntu, follow the on-screen prompts, and complete the initial configuration.</p>
+            <pre class="console"><code>ubuntu</code></pre>
+
+
+            <h3>Access Files</h3>
+            <p>After installation, you can access your files from both Windows and Linux environments. The file paths
+                differ depending on the operating system.</p>
+
+            <p>Windows files are accessible in WSL under <code>/mnt/drive_letter</code>, such as <code>/mnt/c</code>.
+                Conversely, Linux files are accessible from Windows using <code>\\wsl$\</code> in the file explorer's
+                address bar.</p>
+
+            <p>
             <fieldset>
-                <legend>Height of a rectangle</legend>
-                The height of a rectangle is the height of its shortest bar, which may be an internal or side bar.
+                <legend>File paths in Linux</legend>
+                <p>In Linux, file paths describe the location of files and directories within the file system. Paths can
+                    be <strong>absolute</strong>, starting from the root directory (<code>/</code>), or
+                    <strong>relative</strong>, starting from the current working directory. For example, the absolute
+                    path <code>/home/user/Documents/file.txt</code> specifies the exact location of
+                    <code>file.txt</code>, whereas the relative path <code>Documents/file.txt</code> refers to the same
+                    file when your current directory is <code>/home/user</code>.
+                </p>
+                <p>Linux uses a forward slash (<code>/</code>) to separate directories in a path. Special symbols like
+                    <code>.</code> (current directory) and <code>..</code> (parent directory) help navigate the file
+                    system. For instance, if you are in <code>/home/user</code> and want to access <code>file.txt</code>
+                    in <code>Documents</code>, the relative path would be <code>./Documents/file.txt</code>, and moving
+                    up one level to <code>/home</code> would require <code>cd ..</code>. Understanding these basics
+                    makes working with the Linux file system more efficient.
+                </p>
             </fieldset>
-        -->
+            </p>
 
+            <h2>Installing g++ and lldb on Ubuntu</h2>
 
-            <!--<div class="single-image-container">
-                <figure style="display: inline-block; margin: 10px; text-align: center;">
-                    <img src="./img/LargeRectangles3a.png" width="500" height="500" />
-                    <img src="./img/LargeRectangles3b.png" width="500" height="500" />
-                    <figcaption>Figure 1: Two different examples of largest rectangles with spikes and their
-                        corresponding areas.</figcaption>
-                </figure>
-            </div>-->
+            <p>To compile and debug C++ code, as you will be doing in this course, you need to install tools like g++
+                and lldb in your Ubuntu environment. (You need to install g++ in Ubuntu even if you already have it in
+                the Windows environment since we will be using it from within Ubuntu.)
+                These tools are standard for Linux-based development. Note: I will be introducing lldb in more detail on
+                a later page.</p>
 
+            <pre class="console"><code>sudo apt update
+sudo apt install g++ lldb</code></pre>
 
+            <p><code>apt</code> is the package manager for Linux, used to install, update, and manage software.
+                <code>sudo</code> grants administrative privileges needed for system-level tasks. The command
+                <code>sudo apt update</code> refreshes the list of available software, and
+                <code>sudo apt install g++ lldb</code> installs the GNU C++ compiler and the LLVM Debugger for compiling
+                and debugging C++ programs.
+            </p>
 
-            <!--<div class="code-container" data-filename="./py/lr5.py">
-                <pre><code class="language-python" id="py-code">
-                    </code></pre>
-            </div>-->
+            <h2>Installing the WSL Extension on VSCode</h2>
+            <p>To integrate VSCode with WSL, you need to install the 'WSL' extension, from the VSCode extensions pane.
+                This extension enables a seamless workflow between your Windows editor and the Linux environment.</p>
+
+            <h3>Install the Extension</h3>
+
+            <p>Open Visual Studio Code from Windows, navigate to the Extensions Marketplace, search for 'WSL' extension
+                by
+                Microsoft, and click Install.</p>
+
+            <h3>Open WSL in VS Code</h3>
+            <p>Once the extension is installed, you can open a new WSL session directly in VS Code. This connects your
+                editor to the Linux environment.</p>
+            <p>Press <code>Ctrl + Shift + P</code> to open the Command Palette. Type <code>WSL: New Window</code> and
+                select it to open a WSL session in VS Code.</p>
+
+            <h3>Open a Linux Folder</h3>
+            <p>To work on files within the Linux environment, open a folder from WSL in VS Code. This allows you to edit
+                and debug code seamlessly.</p>
+            <p>Use the menu option <code>File > Open Folder</code> in VS Code to navigate to your WSL file system. A
+                common path to open is <code>/home/username</code>.</p>
+
+            <h2>Using VS Code with WSL</h2>
+            <p>Once connected to WSL, you can use VS Code to edit, debug, and run Linux-based projects seamlessly.
+                Extensions like C++ tools can be installed inside WSL for enhanced integration.</p>
+
+            <h3>Compiling a Simple C++ Program</h3>
+            <p>Follow these steps to create and compile a simple C++ program (e.g., <code>helloworld.cpp</code>) from
+                WSL within VS Code:</p>
+            <p>1. Open a new terminal within VSCode. In the terminal, create a folder named <code>hello_world</code> to organize your files:</p>
+            <pre class="console"><code>mkdir hello_world</code></pre>
+            <p>Navigate into the folder using:</p>
+            <pre class="console"><code>cd hello_world</code></pre>
+
+            <p>2. Open VS Code connected to WSL, and inside the <code>hello_world</code> folder, create a file named
+                <code>helloworld.cpp</code>. Save the file by pressing <code>Ctrl + S</code>. If you encounter issues
+                saving the file, see the section below on file permissions.</p>
+
+            <p>3. Compile the program using the following
+                command:</p>
+            <pre class="console"><code>g++ helloworld.cpp -o helloworld</code></pre>
+            <p>This creates an executable file named <code>helloworld</code>.</p>
+
+            <p>4. Run the program with the command:</p>
+            <pre class="console"><code>./helloworld</code></pre>
+            <p>You should see the expected output of your program.</p>
+
+            <h3>Handling File Permissions</h3>
+            <p>If you encounter issues saving or compiling the file due to insufficient permissions, you may need to
+                update the file's ownership. Run the following command in the terminal to assign ownership of the file
+                to your user:</p>
+            <pre class="console"><code>sudo chown your_username:your_username helloworld.cpp</code></pre>
+            <p><code>chown</code> stands for <strong>change ownership</strong>; it modifies the ownership of a file or directory, assigning it to a specified user and/or group.</p>
+            <p>Replace <code>your_username</code> with your WSL (Ubuntu) username. After this, you should be able to save and
+                compile the file without any issues.</p>
 
 
         </section>
     </div>
 </body>
-
 
 </html>
