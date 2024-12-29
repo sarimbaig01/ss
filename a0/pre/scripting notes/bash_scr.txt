@@ -1,0 +1,136 @@
+    1  echo Hello
+    2  vim testfile.txt
+    3  cat testfile.txt
+    4  vim shelltest.sh
+
+    5  ls
+    6   bash shelltest.sh
+    7  echo $SHELL
+    8  vim shelltest.sh
+    9  ./shelltest.sh
+   10  ls -l
+
+   11   chmod u+x shelltest.sh
+   12  ./shelltest.sh
+
+
+   17  vim 1_add_nums.sh
+   19  chmod u+x 1_add_nums.sh
+   21  ./1_add_nums.sh
+
+   22  touch bash_tut_commands.txt
+   23  history > bash_tut_commands.txt 
+
+   24  echo Topic: positional arguments
+   25  vim 2_positional_args.sh
+   26  chmod u+x 2_positional_args.sh
+   27  ./2_positional_args.sh
+   28  ./2_positional_args.sh sarim baig
+
+   29  echo Topic: Piping
+   30  ls
+   31  ls | grep prog
+
+   32  echo Topic: Output redirection
+   33  echo "Hello World!" > hello.txt
+   34  cat hello.txt
+   35  echo "Hello World to you too!" > hello.txt
+   36  cat hello.txt
+   37  echo "Yes, Hello World to me  too!" >> hello.txt
+   38  cat hello.txt
+
+    1  echo Topic: Input from file
+    2  echo "Word count in a file"
+    3  wc -w authors/poe/cask.txt
+    4  echo Feeding file as input rather than positional argument
+    5  wc -w < authors/poe/cask.txt
+    1  echo "Using << to give multiline text input"
+    2  cat << $
+I will be writing
+multiple lines of text,
+ending with a
+$ sign
+$
+
+
+    1  echo "Using << to give multiline text input"
+    2  cat << $
+I will be writing
+multiple lines of text,
+ending with a
+$ sign
+$
+
+    6  echo "Single string input to the commands line"
+    7  wc -w <<< "Count the characters in this string, instead of going looking for a file."
+    
+    1  echo Topic Test operators
+    2  [ hello = hello ]
+    3  echo "the spaces are important"
+    4  [ hello = hello ]
+    5  echo $?
+    6  [ apple = banana ]
+    8  echo $?
+    9  [ banana = apple ] 
+   10  echo $?
+   11   echo "the printed value is the exit code"
+   12  [ 1 = 0 ]
+   13  echo $?
+   14  echo "Use -eq for numeric comparisons"
+   15  [ 1 -eq 1 ]
+   16  echo $?
+   18  echo $((3+2))
+
+    1  echo Topic if/elif/else
+    2  vim ifelifelse.sh
+    3  echo See above script
+   
+    1  echo Topic if/elif/else
+    2  vim ifelifelse.sh
+    3  echo See above script
+    4  history >> bash_scr.txt
+
+    5  echo Topic skipped: Case statements, see video 29:15
+
+    6  echo Topic: Arrays / for loops
+    8  a1=(one two three four five)
+    9  echo $a1
+   10  #prints just the first element
+   11  echo ${a1[@]}
+   13  #prints the whole array
+   17  #Now an example using the array in a for loop, with some piping
+   18  for item in ${a1[@]}; do echo -n $item | wc -c; done
+   19  #the script is printing the length of each word in the array
+  
+   21  echo Topic: Functions
+   23  vim firstfunction.sh
+   24  chmod u+x firstfunction.sh
+   25  ./firstfunction.sh
+    1  vim functionargs.sh
+    2  chmod u+x functionargs.sh
+    3  ./functionargs.sh
+    4  history >> bash_scr.txt
+    1  vim functionargs.sh
+    2  chmod u+x functionargs.sh
+    3  ./functionargs.sh
+    
+    9  echo Topic: awk
+   10  echo "one two tree" > awktest.txt
+   11  awk '{print $1}' testfile.txt
+   12  awk '{print $1}' awktest.txt
+   13  #prints the first word in the file
+   14  awk '{print $2}' awktest.txt
+   15  echo "print the fifth word of this sentence" | awk '{print $5}' 
+   16  #prints 'of'
+   17  #awk is mainly used for output filtering
+  
+    1  echo Topic: sed
+    2  #used to modify files in a text file using regular expressions
+    3  #creating an example file
+    4  echo "This is just some file content, to be used in an application of sed on the file." > sedtest.txt
+    5  #now applying sed
+    6  sed 's/file/FILE/g' sedtest.txt
+    7  #format of the regular expression: 'mode is substitution/text to replace/replacement text/do it globally' 
+    9  #now doing sed while keeping the original file in a backup file
+   10  sed -i.ORIGINAL 's/file/FILE/g' sedtest.txt
+   11  #back up file called sedtest.txt.ORIGINAL is saved
