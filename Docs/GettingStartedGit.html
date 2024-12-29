@@ -4,277 +4,292 @@
 <head>
     <title>Getting Started with Git</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Style sheets -->
-    <link rel="stylesheet" href="/css/style.css"> 
-    <link rel="stylesheet" href="/css/prism.css"> 
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/prism.css">
 
-    <!-- Scripts -->
-    <script src="/js/prism.js"></script> 
-    <script src="/js/loadCodeAndThemes.js"></script>
-    <script src="/js/insertCode.js"></script> 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!-- Scripts -->
+        <script src="/js/prism.js"></script>
+        <script src="/js/loadCodeAndThemes.js"></script>
+        <script src="/js/insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
 </head>
 
 <body>
     <a href="javascript:history.back()" class="back-link top-right">← Back</a>
 
     <div class="toc">><section class="toc">
-        <h2>Useful Links</h2>
-        <a href="GitRef.html" target="_blank">Git Reference</a>
-        <a href="BashRef.html" target="_blank">Bash Reference</a>
-    </section></div>
+            <h2>Useful Links</h2>
+            <a href="GitRef.html" target="_blank">Git Reference</a>
+            <a href="BashRef.html" target="_blank">Bash Reference</a>
+        </section>
+    </div>
 
-    
-    <div class = "statement">
+
+    <div class="statement">
         <h1 class="align-with-statement">Getting Started with Git</h1>
         <section class="statement">
-        <h2>
-            Introduction
-        </h2>
-        <p>Git is a version control system that tracks changes in code, enabling developers to manage versions, roll
-            back to previous states, and collaborate efficiently. In courses like ELEC50014, Git facilitates code
-            sharing among project partners (if this is part of the course) and further allows instructors to distribute
-            project starter code to students.</p>
+            <h2>
+                Introduction
+            </h2>
+            <p>Git is a version control system that tracks changes in code, enabling developers to manage versions, roll
+                back to previous states, and collaborate efficiently. In courses like ELEC50014, Git facilitates code
+                sharing among project partners (if this is part of the course) and further allows instructors to
+                distribute
+                project starter code to students.</p>
 
-        <h3>Step 1. Create a GitHub account and install git</h3>
-        <p>There are two components involved in setting up Git. One component is that you must have an account on a
-            repository hosting service (that is, a website where you can put your code so your partner can access it).
-            The repository hosting service we use in ELEC50014 is called GitHub. The other component is the Git command
-            line tools, which allow you to interface with Git locally.</p>
+            <h3>Step 1. Create a GitHub account and install git</h3>
+            <p>There are two components involved in setting up Git. One component is that you must have an account on a
+                repository hosting service (that is, a website where you can put your code so your partner can access
+                it).
+                The repository hosting service we use in ELEC50014 is called GitHub. The other component is the Git
+                command
+                line tools, which allow you to interface with Git locally.</p>
 
-        <h4>Step 1a. Create a GitHub account (if you don't have one already)</h3>
-            <p>To sign up for a GitHub account, open GitHub.com in a browser and choose your username, imperial email,
-                and password. Then, select the “free” plan, and then you will be taken to your homepage. Now, you need
-                to verify your email account. Click on the tool icon in the top right corner to get to account settings,
-                then select emails, and click the “verify” button next to your email address. Then, go to your email to
-                confirm.C</p>
-            <p>Check if git is installed:</p>
-            <pre class="console"><code>git --version</code></pre>
-            <p>If you see a version number, git is already installed.</p>
-            <h4>Step 1b. Install git (if not already installed):</h4>
-            <p>On Linux (Ubuntu / Debian): </p>
-            <pre class="console"><code>sudo apt install git   <!-- Debian-based -->
+            <h4>Step 1a. Create a GitHub account (if you don't have one already)</h3>
+                <p>To sign up for a GitHub account, open GitHub.com in a browser and choose your username, imperial
+                    email,
+                    and password. Then, select the “free” plan, and then you will be taken to your homepage. Now, you
+                    need
+                    to verify your email account. Click on the tool icon in the top right corner to get to account
+                    settings,
+                    then select emails, and click the “verify” button next to your email address. Then, go to your email
+                    to
+                    confirm.C</p>
+                <p>Check if git is installed:</p>
+                <pre class="console"><code>git --version</code></pre>
+                <p>If you see a version number, git is already installed.</p>
+                <h4>Step 1b. Install git (if not already installed):</h4>
+                <p>On Linux (Ubuntu / Debian): </p>
+                <pre class="console"><code>sudo apt install git   <!-- Debian-based -->
 </code></pre>
-            <p>On macOS (you first need to install Homebrew if you don't have it already): </p>
-            <pre class="console"><code>brew install git</code></pre>
-            <h3>Step 2. Configure Git to connect to GitHub using SSH</h3>
-            <p>We now need to configure Git to connect with our GitHub account, using the SSH protocol.</p>
+                <p>On macOS (you first need to install Homebrew if you don't have it already): </p>
+                <pre class="console"><code>brew install git</code></pre>
+                <h3>Step 2. Configure Git to connect to GitHub using SSH</h3>
+                <p>We now need to configure Git to connect with our GitHub account, using the SSH protocol.</p>
 
-            <h4>Step 2a. Generate an SSH Key</h4>
-            <p>We can use either the SSH or HTTPS protocols to connect Git from our local machine to the remote GitHub
-                server. Both protocols provide a secure connection. We will use SSH, as this will allow continued use
-                without repeated authentication.</p>
+                <h4>Step 2a. Generate an SSH Key</h4>
+                <p>We can use either the SSH or HTTPS protocols to connect Git from our local machine to the remote
+                    GitHub
+                    server. Both protocols provide a secure connection. We will use SSH, as this will allow continued
+                    use
+                    without repeated authentication.</p>
 
-            <p>Generate the SSH key as follows. On the bash terminal, run:</p>
-            <pre class="console"><code>ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
-            <p>When prompted:</p>
-            <ul>
-                <li>Press <strong>Enter</strong> to save the key in the default location
-                    (<code>~/.ssh/id_ed25519</code>).</li>
-                <li>Leave the paraphrase blank.</li>
-            </ul>
+                <p>Generate the SSH key as follows. On the bash terminal, run:</p>
+                <pre class="console"><code>ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
+                <p>When prompted:</p>
+                <ul>
+                    <li>Press <strong>Enter</strong> to save the key in the default location
+                        (<code>~/.ssh/id_ed25519</code>).</li>
+                    <li>Leave the paraphrase blank.</li>
+                </ul>
 
-            <p>After this, two files are created:</p>
-            <ul>
-                <li><code>id_ed25519</code>: Your private key (keep this secure).</li>
-                <li><code>id_ed25519.pub</code>: Your public key (this will be added to GitHub).</li>
-            </ul>
+                <p>After this, two files are created:</p>
+                <ul>
+                    <li><code>id_ed25519</code>: Your private key (keep this secure).</li>
+                    <li><code>id_ed25519.pub</code>: Your public key (this will be added to GitHub).</li>
+                </ul>
 
 
-            <h4>Step 2b. Add the Public Key to GitHub</h4>
+                <h4>Step 2b. Add the Public Key to GitHub</h4>
 
-            <p>Follow these steps to add your SSH public key to GitHub:</p>
-            <ol>
-                <li>Copy your public key to the clipboard by running the following command in your terminal:
-                    <pre class="console"><code>cat ~/.ssh/id_ed25519.pub</code></pre>
-                </li>
-                <li>Open GitHub in your browser and log in to your account.</li>
-                <li>Navigate to:
-                    <ul>
-                        <li>Settings (in the menu after you click on your profile picture on the top right of page)</li>
-                        <li>Click on SSH and GPG keys.</li>
-                        <li>Click on New SSH key.</li>
-                    </ul>
-                </li>
-                <li>Add your key:
-                    <ul>
-                        <li>Title: Enter a descriptive title (e.g., "My Laptop - WSL").</li>
-                        <li>Key: Paste your public key.</li>
-                    </ul>
-                </li>
-                <li>Click Add SSH key.</li>
-            </ol>
+                <p>Follow these steps to add your SSH public key to GitHub:</p>
+                <ol>
+                    <li>Copy your public key to the clipboard by running the following command in your terminal:
+                        <pre class="console"><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+                    </li>
+                    <li>Open GitHub in your browser and log in to your account.</li>
+                    <li>Navigate to:
+                        <ul>
+                            <li>Settings (in the menu after you click on your profile picture on the top right of page)
+                            </li>
+                            <li>Click on SSH and GPG keys.</li>
+                            <li>Click on New SSH key.</li>
+                        </ul>
+                    </li>
+                    <li>Add your key:
+                        <ul>
+                            <li>Title: Enter a descriptive title (e.g., "My Laptop - WSL").</li>
+                            <li>Key: Paste your public key.</li>
+                        </ul>
+                    </li>
+                    <li>Click Add SSH key.</li>
+                </ol>
 
-            <p>To test the SSH connection, follow these steps:</p>
-            <ol>
-                <li>Open the terminal and run the following command:
-                    <pre class="console"><code>ssh -T git@github.com</code></pre>
-                </li>
-                <li>If the connection is successful, you will see a message similar to the following:
-                    <pre
-                        class="console"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
-                </li>
-            </ol>
-            <h4>Step 2c. Configure Git to use SSH</h4>
-            <p>To configure Git to use SSH, follow these steps:</p>
-            <ol>
-                <li>Update your repository's remote URL to use SSH by running the following command in the terminal:
-                    <pre
-                        class="console"><code>git remote set-url origin git@github.com:username/repository.git</code></pre>
-                    <p>Replace <code>username</code> with your GitHub username and <code>repository</code> with the name
-                        of your repository.</p>
-                </li>
-                <li>Verify the updated remote URL by running:
-                    <pre class="console"><code>git remote -v</code></pre>
-                </li>
-                <li>Ensure the output shows the SSH URL format, similar to this:
-                    <pre class="console"><code>origin  git@github.com:username/repository.git (fetch)
+                <p>To test the SSH connection, follow these steps:</p>
+                <ol>
+                    <li>Open the terminal and run the following command:
+                        <pre class="console"><code>ssh -T git@github.com</code></pre>
+                    </li>
+                    <li>If the connection is successful, you will see a message similar to the following:
+                        <pre
+                            class="console"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+                    </li>
+                </ol>
+                <h4>Step 2c. Configure Git to use SSH</h4>
+                <p>To configure Git to use SSH, follow these steps:</p>
+                <ol>
+                    <li>Update your repository's remote URL to use SSH by running the following command in the terminal:
+                        <pre
+                            class="console"><code>git remote set-url origin git@github.com:username/repository.git</code></pre>
+                        <p>Replace <code>username</code> with your GitHub username and <code>repository</code> with the
+                            name
+                            of your repository.</p>
+                    </li>
+                    <li>Verify the updated remote URL by running:
+                        <pre class="console"><code>git remote -v</code></pre>
+                    </li>
+                    <li>Ensure the output shows the SSH URL format, similar to this:
+                        <pre class="console"><code>origin  git@github.com:username/repository.git (fetch)
 origin  git@github.com:username/repository.git (push)</code></pre>
-                </li>
-            </ol>
+                    </li>
+                </ol>
 
-            <h3>Step 3. Create a repository</h3>
-            <p>Create a new directory for the repository:</p>
-            <pre class="console"><code>mkdir hello-git
+                <h3>Step 3. Create a repository</h3>
+                <p>Create a new directory for the repository:</p>
+                <pre class="console"><code>mkdir hello-git
 cd hello-git
 </code></pre>
 
-            <p>Initialize the git repository:</p>
-            <p>The following will create a repository in your current directory (hello-git in this case).</p>
-            <pre class="console"><code>git init</code></pre>
-            <p><code>git init</code> initializes a local repository, allowing git to
-                track changes made in the folder.</p>
+                <p>Initialize the git repository:</p>
+                <p>The following will create a repository in your current directory (hello-git in this case).</p>
+                <pre class="console"><code>git init</code></pre>
+                <p><code>git init</code> initializes a local repository, allowing git to
+                    track changes made in the folder.</p>
 
-            <h3>Step 4 (Optional). Clone an existing repository</h3>
-            <p>For now, you may not need this step as you are creating your first repository. However, at some point
-                you
-                may need to clone a repository provided to you, or that you have created remotely on GitHub, onto
-                your
-                local machine.</p>
-            <p>Clone an existing repository:</p>
-            <pre class="console"><code>git clone git@github.com:yourusername/repository-name.git
+                <h3>Step 4 (Optional). Clone an existing repository</h3>
+                <p>For now, you may not need this step as you are creating your first repository. However, at some point
+                    you
+                    may need to clone a repository provided to you, or that you have created remotely on GitHub, onto
+                    your
+                    local machine.</p>
+                <p>Clone an existing repository:</p>
+                <pre class="console"><code>git clone git@github.com:yourusername/repository-name.git
             </code></pre>
 
-            <p>Note: GitHub provides a URL for every repository, ending with .git. On GitHub you can find this URL
-                by
-                going to your repository page and clicking on the <code>Code</code> drop down menu.</p>
+                <p>Note: GitHub provides a URL for every repository, ending with .git. On GitHub you can find this URL
+                    by
+                    going to your repository page and clicking on the <code>Code</code> drop down menu.</p>
 
-            <p>Navigate into the cloned repository:</p>
-            <pre class="console"><code>cd repository-name</code></pre>
-            <p>
-                Overall, <<code>git clone</code> creates a <strong>copy of a remote repository</strong> on your
-                    local machine, making it ready for development.
-            </p>
+                <p>Navigate into the cloned repository:</p>
+                <pre class="console"><code>cd repository-name</code></pre>
+                <p>
+                    Overall, <<code>git clone</code> creates a <strong>copy of a remote repository</strong> on your
+                        local machine, making it ready for development.
+                </p>
 
-            <h3>Step 5. Open a local repository in VSCode</h3>
-            <p>Open the repository folder in VSCode:</p>
-            <p>Make sure you have navigated into the repository folder. Then execute:</p>
-            <pre class="console"><code>code .</code></pre>
-            <p>This can also be done from within VSCode by selecting File > Open Folder... (choosing your repository
-                folder)</p>
-            <p>From here on, you can open the shell from within VSCode by selecting Terminal > New Terminal...</p>
-            <p>This sets us up to use git from within VSCode, making code implementation and integration a seamless
-                process.</p>
-            <p>Verify git integration:</p>
-            <ul>
-                <li>VSCode automatically detects the repository if it’s initialized.</li>
-                <li>Open the Source Control (Explorer) tab on the left sidebar.</li>
-            </ul>
+                <h3>Step 5. Open a local repository in VSCode</h3>
+                <p>Open the repository folder in VSCode:</p>
+                <p>Make sure you have navigated into the repository folder. Then execute:</p>
+                <pre class="console"><code>code .</code></pre>
+                <p>This can also be done from within VSCode by selecting File > Open Folder... (choosing your repository
+                    folder)</p>
+                <p>From here on, you can open the shell from within VSCode by selecting Terminal > New Terminal...</p>
+                <p>This sets us up to use git from within VSCode, making code implementation and integration a seamless
+                    process.</p>
+                <p>Verify git integration:</p>
+                <ul>
+                    <li>VSCode automatically detects the repository if it’s initialized.</li>
+                    <li>Open the Source Control (Explorer) tab on the left sidebar.</li>
+                </ul>
 
-            <h3>Step 6. Example: Managing a C++ File</h3>
-            <p>Create a file: <code>helloworld.cpp</code> in VSCode (which is opened in your repository folder)</p>
+                <h3>Step 6. Example: Managing a C++ File</h3>
+                <p>Create a file: <code>helloworld.cpp</code> in VSCode (which is opened in your repository folder)</p>
 
-            <div class="code-container" data-filename="../cpp/helloworld.cpp">
-                <pre><code class="language-cpp" id="cpp-code">
+                <div class="code-container" data-filename="../cpp/helloworld.cpp">
+                    <pre><code class="language-cpp" id="cpp-code">
                 </code></pre>
-            </div>
+                </div>
 
-            <p>Stage the file:</p>
-            <pre class="console"><code>git add helloworld.cpp</code></pre>
-            <p><code>git add</code> moves changes to the staging area, preparing them
-                for a commit.</p>
+                <p>Stage the file:</p>
+                <pre class="console"><code>git add helloworld.cpp</code></pre>
+                <p><code>git add</code> moves changes to the staging area, preparing them
+                    for a commit.</p>
 
-            <p>Commit the file:</p>
-            <pre class="console"><code>git commit -m "Added helloworld.cpp"</code></pre>
-            <p><code>git commit</code> saves changes permanently to your local
-                repository, along with a message describing what was done.</p>
+                <p>Commit the file:</p>
+                <pre class="console"><code>git commit -m "Added helloworld.cpp"</code></pre>
+                <p><code>git commit</code> saves changes permanently to your local
+                    repository, along with a message describing what was done.</p>
 
-            <p>Modify the file: change <code>Hello, World!</code> to <code>Hello, Git!</code></p>
+                <p>Modify the file: change <code>Hello, World!</code> to <code>Hello, Git!</code></p>
 
-            <p>Stage and commit again:</p>
-            <pre class="console"><code>git add helloworld.cpp
+                <p>Stage and commit again:</p>
+                <pre class="console"><code>git add helloworld.cpp
 git commit -m "Updated message in helloworld.cpp"
 </code></pre>
 
-            <p>Push changes to remote repository:</p>
-            <pre class="console"><code>git push origin main</code></pre>
-            <p><code>git push</code> uploads committed changes from the local
-                repository to a remote repository.</p>
+                <p>Push changes to remote repository:</p>
+                <pre class="console"><code>git push origin main</code></pre>
+                <p><code>git push</code> uploads committed changes from the local
+                    repository to a remote repository.</p>
 
-            <h3>Step 7. Pull changes</h3>
-            <p>Pull latest changes from remote repository:</p>
-            <pre class="console"><code>git pull origin main</code></pre>
-            <p><code>git pull</code> downloads and integrates updates from the remote
-                repository into your local project.</p>
+                <h3>Step 7. Pull changes</h3>
+                <p>Pull latest changes from remote repository:</p>
+                <pre class="console"><code>git pull origin main</code></pre>
+                <p><code>git pull</code> downloads and integrates updates from the remote
+                    repository into your local project.</p>
 
-            <h2>Basic Git Commands</h2>
-            <p>This is a summary of the basic Git commands you have seen above.</p>
-            <p>A quick reference to some of the most common git commands is <a href="GitRef.html"
-                    target="_blank">available here</a>.</p>
-            <ul>
-                <li>
-                    <strong>git status</strong> - Tells you the status of your local repository: what files have
-                    been
-                    added, deleted, and changed since your last commit. It also shows which changes are in staging
-                    and
-                    which ones aren’t. When a change is in staging, it will be included in the next commit. If you
-                    have
-                    text coloring enabled, staged changes appear <span style="color: green;">green</span> and
-                    unstaged
-                    changes appear <span style="color: red;">red</span> (the same colors appear in VSCode).
-                </li>
+                <h2>Basic Git Commands</h2>
+                <p>This is a summary of the basic Git commands you have seen above.</p>
+                <p>A quick reference to some of the most common git commands is <a href="GitRef.html"
+                        target="_blank">available here</a>.</p>
+                <ul>
+                    <li>
+                        <strong>git status</strong> - Tells you the status of your local repository: what files have
+                        been
+                        added, deleted, and changed since your last commit. It also shows which changes are in staging
+                        and
+                        which ones aren’t. When a change is in staging, it will be included in the next commit. If you
+                        have
+                        text coloring enabled, staged changes appear <span style="color: green;">green</span> and
+                        unstaged
+                        changes appear <span style="color: red;">red</span> (the same colors appear in VSCode).
+                    </li>
 
-                <li>
-                    <strong>git add &lt;file/folder&gt;</strong> - Stages the specified file or folder. You can use
-                    regular expressions to include multiple files or run <code>git add</code> multiple times for
-                    different files. If you stage a file but make changes afterward, it automatically gets unstaged,
-                    so
-                    you must run <code>git add</code> again.
-                </li>
+                    <li>
+                        <strong>git add &lt;file/folder&gt;</strong> - Stages the specified file or folder. You can use
+                        regular expressions to include multiple files or run <code>git add</code> multiple times for
+                        different files. If you stage a file but make changes afterward, it automatically gets unstaged,
+                        so
+                        you must run <code>git add</code> again.
+                    </li>
 
-                <li>
-                    <strong>git commit</strong> - Commits the changes that were staged. Think of this as logging a
-                    new
-                    version of your code with the set of staged changes. Git will open its text editor so that you
-                    can
-                    add a message describing the changes. Writing clear and informative commit messages can help
-                    your
-                    collaborators (and your future self) understand what was changed in previous commits. Note that
-                    all
-                    commits only exist on your local copy until you push them to the remote repository.
-                </li>
+                    <li>
+                        <strong>git commit</strong> - Commits the changes that were staged. Think of this as logging a
+                        new
+                        version of your code with the set of staged changes. Git will open its text editor so that you
+                        can
+                        add a message describing the changes. Writing clear and informative commit messages can help
+                        your
+                        collaborators (and your future self) understand what was changed in previous commits. Note that
+                        all
+                        commits only exist on your local copy until you push them to the remote repository.
+                    </li>
 
-                <li>
-                    <strong>git push</strong> - Pushes all local commits since your last push to the remote
-                    repository.
-                    This allows collaborators to access your changes. If someone else has made changes to the remote
-                    repository while you were working, Git may require you to perform a <code>git pull</code> before
-                    you
-                    can push your changes.
-                </li>
+                    <li>
+                        <strong>git push</strong> - Pushes all local commits since your last push to the remote
+                        repository.
+                        This allows collaborators to access your changes. If someone else has made changes to the remote
+                        repository while you were working, Git may require you to perform a <code>git pull</code> before
+                        you
+                        can push your changes.
+                    </li>
 
-                <li>
-                    <strong>git pull</strong> - Pulls all commits from the remote repository that your local version
-                    doesn’t have. This retrieves any changes that others working on your project have pushed since
-                    the
-                    last time you pulled. You should commit all your changes before doing this to avoid losing them.
-                </li>
-            </ul>
-    </section></div>
+                    <li>
+                        <strong>git pull</strong> - Pulls all commits from the remote repository that your local version
+                        doesn’t have. This retrieves any changes that others working on your project have pushed since
+                        the
+                        last time you pulled. You should commit all your changes before doing this to avoid losing them.
+                    </li>
+                </ul>
+        </section>
+    </div>
 </body>
 
 </html>
