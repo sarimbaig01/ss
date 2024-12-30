@@ -25,7 +25,7 @@
     <a href="javascript:history.back()" class="back-link top-right">← Back</a>
 
     <div class="toc">><section class="toc">
-            <h2>Useful Links</h2>
+            <h3>Useful Links</h3>
             <a href="GitRef.html" target="_blank">Git Reference</a>
             <a href="BashRef.html" target="_blank">Bash Reference</a>
         </section>
@@ -63,14 +63,17 @@
                     to
                     confirm.C</p>
                 <p>Check if git is installed:</p>
-                <pre class="console"><code>git --version</code></pre>
+
+                <pre class="language-shell-session"><code>$ git --version</code></pre>
+                
+
                 <p>If you see a version number, git is already installed.</p>
                 <h4>Step 1b. Install git (if not already installed):</h4>
                 <p>On Linux (Ubuntu / Debian): </p>
-                <pre class="console"><code>sudo apt install git   <!-- Debian-based -->
+                <pre class="language-shell-session"><code>$ sudo apt install git   <!-- Debian-based -->
 </code></pre>
                 <p>On macOS (you first need to install Homebrew if you don't have it already): </p>
-                <pre class="console"><code>brew install git</code></pre>
+                <pre class="language-shell-session"><code>$ brew install git</code></pre>
                 <h3>Step 2. Configure Git to connect to GitHub using SSH</h3>
                 <p>We now need to configure Git to connect with our GitHub account, using the SSH protocol.</p>
 
@@ -82,7 +85,7 @@
                     without repeated authentication.</p>
 
                 <p>Generate the SSH key as follows. On the bash terminal, run:</p>
-                <pre class="console"><code>ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
+                <pre class="language-shell-session"><code>$ ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
                 <p>When prompted:</p>
                 <ul>
                     <li>Press <strong>Enter</strong> to save the key in the default location
@@ -102,7 +105,7 @@
                 <p>Follow these steps to add your SSH public key to GitHub:</p>
                 <ol>
                     <li>Copy your public key to the clipboard by running the following command in your terminal:
-                        <pre class="console"><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+                        <pre class="language-shell-session"><code>$ cat ~/.ssh/id_ed25519.pub</code></pre>
                     </li>
                     <li>Open GitHub in your browser and log in to your account.</li>
                     <li>Navigate to:
@@ -125,11 +128,11 @@
                 <p>To test the SSH connection, follow these steps:</p>
                 <ol>
                     <li>Open the terminal and run the following command:
-                        <pre class="console"><code>ssh -T git@github.com</code></pre>
+                        <pre class="language-shell-session"><code>$ ssh -T git@github.com</code></pre>
                     </li>
                     <li>If the connection is successful, you will see a message similar to the following:
                         <pre
-                            class="console"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+                            class="language-shell-session"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
                     </li>
                 </ol>
                 <h4>Step 2c. Configure Git to use SSH</h4>
@@ -137,29 +140,29 @@
                 <ol>
                     <li>Update your repository's remote URL to use SSH by running the following command in the terminal:
                         <pre
-                            class="console"><code>git remote set-url origin git@github.com:username/repository.git</code></pre>
+                            class="language-shell-session"><code>$ git remote set-url origin git@github.com:username/repository.git</code></pre>
                         <p>Replace <code>username</code> with your GitHub username and <code>repository</code> with the
                             name
                             of your repository.</p>
                     </li>
                     <li>Verify the updated remote URL by running:
-                        <pre class="console"><code>git remote -v</code></pre>
+                        <pre class="language-shell-session"><code>$ git remote -v</code></pre>
                     </li>
                     <li>Ensure the output shows the SSH URL format, similar to this:
-                        <pre class="console"><code>origin  git@github.com:username/repository.git (fetch)
+                        <pre class="language-shell-session"><code>origin  git@github.com:username/repository.git (fetch)
 origin  git@github.com:username/repository.git (push)</code></pre>
                     </li>
                 </ol>
 
                 <h3>Step 3. Create a repository</h3>
                 <p>Create a new directory for the repository:</p>
-                <pre class="console"><code>mkdir hello-git
+                <pre class="language-shell-session"><code>$ mkdir hello-git
 cd hello-git
 </code></pre>
 
                 <p>Initialize the git repository:</p>
                 <p>The following will create a repository in your current directory (hello-git in this case).</p>
-                <pre class="console"><code>git init</code></pre>
+                <pre class="language-shell-session"><code>$ git init</code></pre>
                 <p><code>git init</code> initializes a local repository, allowing git to
                     track changes made in the folder.</p>
 
@@ -170,15 +173,14 @@ cd hello-git
                     your
                     local machine.</p>
                 <p>Clone an existing repository:</p>
-                <pre class="console"><code>git clone git@github.com:yourusername/repository-name.git
-            </code></pre>
+                <pre class="language-shell-session"><code>$ git clone git@github.com:yourusername/repository-name.git</code></pre>
 
                 <p>Note: GitHub provides a URL for every repository, ending with .git. On GitHub you can find this URL
                     by
                     going to your repository page and clicking on the <code>Code</code> drop down menu.</p>
 
                 <p>Navigate into the cloned repository:</p>
-                <pre class="console"><code>cd repository-name</code></pre>
+                <pre class="language-shell-session"><code>$ cd repository-name</code></pre>
                 <p>
                     Overall, <<code>git clone</code> creates a <strong>copy of a remote repository</strong> on your
                         local machine, making it ready for development.
@@ -187,7 +189,7 @@ cd hello-git
                 <h3>Step 5. Open a local repository in VSCode</h3>
                 <p>Open the repository folder in VSCode:</p>
                 <p>Make sure you have navigated into the repository folder. Then execute:</p>
-                <pre class="console"><code>code .</code></pre>
+                <pre class="language-shell-session"><code>$ code .</code></pre>
                 <p>This can also be done from within VSCode by selecting File > Open Folder... (choosing your repository
                     folder)</p>
                 <p>From here on, you can open the shell from within VSCode by selecting Terminal > New Terminal...</p>
@@ -202,36 +204,36 @@ cd hello-git
                 <h3>Step 6. Example: Managing a C++ File</h3>
                 <p>Create a file: <code>helloworld.cpp</code> in VSCode (which is opened in your repository folder)</p>
 
-                <div class="code-container" data-filename="../cpp/helloworld.cpp">
+                <div class="code-container" data-filename="/cpp/helloworld.cpp">
                     <pre><code class="language-cpp" id="cpp-code">
                 </code></pre>
                 </div>
 
                 <p>Stage the file:</p>
-                <pre class="console"><code>git add helloworld.cpp</code></pre>
+                <pre class="language-shell-session"><code>$ git add helloworld.cpp</code></pre>
                 <p><code>git add</code> moves changes to the staging area, preparing them
                     for a commit.</p>
 
                 <p>Commit the file:</p>
-                <pre class="console"><code>git commit -m "Added helloworld.cpp"</code></pre>
+                <pre class="language-shell-session"><code>$ git commit -m "Added helloworld.cpp"</code></pre>
                 <p><code>git commit</code> saves changes permanently to your local
                     repository, along with a message describing what was done.</p>
 
                 <p>Modify the file: change <code>Hello, World!</code> to <code>Hello, Git!</code></p>
 
                 <p>Stage and commit again:</p>
-                <pre class="console"><code>git add helloworld.cpp
+                <pre class="language-shell-session"><code>$ git add helloworld.cpp
 git commit -m "Updated message in helloworld.cpp"
 </code></pre>
 
                 <p>Push changes to remote repository:</p>
-                <pre class="console"><code>git push origin main</code></pre>
+                <pre class="language-shell-session"><code>$ git push origin main</code></pre>
                 <p><code>git push</code> uploads committed changes from the local
                     repository to a remote repository.</p>
 
                 <h3>Step 7. Pull changes</h3>
                 <p>Pull latest changes from remote repository:</p>
-                <pre class="console"><code>git pull origin main</code></pre>
+                <pre class="language-shell-session"><code>$ git pull origin main</code></pre>
                 <p><code>git pull</code> downloads and integrates updates from the remote
                     repository into your local project.</p>
 

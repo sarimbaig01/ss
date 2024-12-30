@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Unix File System Hierarchy</title>
+
+    <div class="common-head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/prism.css">
+
+        <!-- Scripts -->
+        <script src="/js/prism.js"></script>
+        <script src="/js/loadCodeAndThemes.js"></script>
+        <script src="/js/insertCode.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+</head>
+
+<body>
+    <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
+
+    <div class="statement">
+        <h1 class="align-with-statement"> Unix File System Hierarchy</h1>
+        <section class="statement">
+            <h2>File System Hierarchy in a Unix-like system</h2>
+            <p>todo: intro...</p>
+            <h3>Inspecting the hierarchy with <span style="font-family: monospace;">tree</span></h3>
+            <p>todo...: install and use tree to inspect root, home, and hierarchy...</p>
+            <h3>Navigating the hierarchy with <span style="font-family: monospace;">cd</span>, etc.</h3>
+            <p>todo...: install and use tree to inspect root, home, and hierarchy...</p>
+
+            <fieldset>
+                <legend>Some terminology</legend>
+
+                <p><strong>File System</strong>: The organizational structure and method used by the operating system to
+                    manage files and directories on a storage device. A file system defines how data is stored,
+                    retrieved, and organized into files and directories.</p>
+
+                <p><strong>Root (/)</strong>: The top-level directory in the file system hierarchy that serves
+                    as the base or starting point for all files and directories. For example, in Unix-like systems,
+                    directories like /bin and /usr stem from /, while in Windows, the root of each drive is represented
+                    as C:\ or D:\.</p>
+
+                <p><strong>Home (~)</strong>: A user-specific directory for personal files, settings, and data. In
+                    Linux and macOS, it is typically located under /home/username or /Users/username and is represented
+                    by the tilde symbol (~) in shell environments. In Windows, it is found at C:\Users\username. This
+                    directory is the default working location for users upon login.</p>
+
+                <p><strong>Partition</strong>: A logically defined section of a disk that separates storage into
+                    distinct regions, each potentially holding its own file system. For example, in Linux, partitions
+                    are represented as /dev/sda1 or /dev/nvme0n1p1. In macOS, partitions are represented as
+                    /dev/disk0s1, while in Windows, partitions appear as Partition 1 on Disk 0 (viewable in Disk
+                    Management).</p>
+
+                <p><strong>Volume</strong>: A logical storage unit within a partition that contains a file system. In
+                    macOS, volumes such as Macintosh HD and Macintosh HD - Data share the same APFS container. In Linux,
+                    mounted volumes are accessible under directories like /mnt or /media. In Windows, volumes are
+                    typically represented by drive letters such as C:\ or D:\.</p>
+
+                <p><strong>Mounting</strong>: The process of attaching a file system or storage device to a directory in
+                    the file system hierarchy, making its contents accessible to the operating system. For example,
+                    mounting a USB drive in Linux attaches it to /mnt/usb, while in macOS, it might be attached under
+                    /Volumes.</p>
+
+                <p><strong>Mount Point</strong>: A directory where a file system or storage device is attached,
+                    integrating its contents into the unified file system hierarchy. For example, /mnt/usb might be used
+                    to access a USB drive in Linux, while in macOS, volumes are mounted under /Volumes.</p>
+
+            </fieldset>
+
+
+
+            <div class="double-shell">
+            <p>On Linux:</p> 
+            <pre class="language-shell-session"><code>$ echo "Hello World"</code></pre>
+            <p>On macOS:</p>
+            <pre class="language-shell-session"><code>% echo "Hello World"</code></pre>
+            </div>
+            
+
+
+
+
+
+            <!--
+            <fieldset>
+                <legend>Height of a rectangle</legend>
+                The height of a rectangle is the height of its shortest bar, which may be an internal or side bar.
+            </fieldset>
+        -->
+
+
+            <!--<div class="single-image-container">
+            <figure style="display: inline-block; margin: 10px; text-align: center;">
+                <img src="./img/LargeRectangles3a.png" width="500" height="500" />
+                <img src="./img/LargeRectangles3b.png" width="500" height="500" />
+                <figcaption>Figure 1: Two different examples of largest rectangles with spikes and their
+                    corresponding areas.</figcaption>
+            </figure>
+        </div>-->
+
+        </section>
+    </div>
+</body>
+
+
+</html>
