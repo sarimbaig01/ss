@@ -28,13 +28,189 @@
         <h1 class="align-with-statement"> Unix File System Hierarchy</h1>
         <section class="statement">
             <h2>File System Hierarchy in a Unix-like system</h2>
-            <p>todo: intro...</p>
-            <h3>Inspecting the hierarchy with <span style="font-family: monospace;">tree</span></h3>
-            <p>todo...: install and use tree to inspect root, home, and hierarchy...</p>
-            <h3>Navigating the hierarchy with <span style="font-family: monospace;">cd</span>, etc.</h3>
-            <p>todo...: install and use tree to inspect root, home, and hierarchy...</p>
+            <p>Most modern operating systems arrange files and directories in a hierarchical fashion. In Unix-based
+                systems, such as Linux and macOS, this hierarchy resembles a tree structure, beginning with a root
+                directory. To work effectively with these systems, especially when interacting through a shell, it is
+                essential to understand the file system hierarchy and related terminology. This article provides a
+                beginner-friendly introduction to the topic.</p>
+            <h3>1. Inspecting the hierarchy with <span style="font-family: monospace;">tree</span></h3>
+            <p>It is useful to begin by inspecting the file system hierarchy on your system. This article assumes that
+                you are currently using either Linux (or WSL on Windows) or macOS. A good way to inspect the file system
+                hierarchy is by using the <span style="font-family: monospace;">tree</span> command. The <span
+                    style="font-family: monospace;">tree</span> command is an external utility and might not be
+                installed on your system by default.</p>
+
+            <p>To check if <span style="font-family: monospace;">tree</span> is available, open a terminal and run the
+                following command:</p>
+
+            <pre class="language-shell-session"><code>$ tree --version</code></pre>
+
+            <p>If the command returns the version of <span style="font-family: monospace;">tree</span>, it is already
+                installed on your system. If you see an error like <code>command not found</code>, you will need to
+                install it.</p>
+
+            <h4>Installing <span style="font-family: monospace;">tree</span></h4>
+
+            <p>To install <span style="font-family: monospace;">tree</span> on Linux or macOS, use the following
+                commands respectively.</p>
+
+            <div class="double-shell">
+                <p>On Linux (Ubuntu / Debian):</p>
+                <pre class="language-shell-session"><code>$ sudo apt install tree</code></pre>
+                <p>On macOS:</p>
+                <pre class="language-shell-session"><code>$ brew install tree</code></pre>
+            </div>
+
+            <p>If Homebrew is not installed on your macOS system, you can install it by running the following in your
+                terminal:</p>
+            <pre
+                class="language-shell-session"><code>$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</code></pre>
+
+            <h4>Using <span style="font-family: monospace;">tree</span></h4>
+
+            <p>Now that <span style="font-family: monospace;">tree</span> has been installed we can use it inspect the
+                file system hierarchy.</p>
+
+            <p>The root directory in Unix-based systems is represented by /
+            <p>
+
+            <p>The following example uses the <span style="font-family: monospace;">tree</span> command to show the
+                contents of the root directory, i.e., the root and its immediate children only.</p>
+
+            <pre class="language-shell-session"><code>$ tree -L 1 /</code></pre>
+            <p>The -L option limits the depth of the tree, and 1 specifies one level below the root.</p>
+
+            <p>A typical output will look like this:</p>
+
+            <pre class="language-shell-session"><code>
+/
+├── bin
+├── boot
+├── dev
+├── etc
+├── home
+├── lib
+├── lib64
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+
+19 directories, 0 files</code></pre>
+
+            <p><strong>Note for clarification</strong>: The /root directory that you see above is a child of the actual
+                root (/) and typically acts as the home directory for the root user (superuser), storing the root user’s
+                personal files and configurations. On macOS this is typically at /var/root.</p>
 
             <fieldset>
+                <legend>Some important directories in root</legend>
+
+                <p><strong>/bin</strong>: Contains essential binary executables (programs) needed for the system to
+                    function, even in single-user mode. Examples include common commands like ls, cp, mkdir, and the
+                    shell program bash.</p>
+                <p><strong>/etc</strong>: Stores configuration files for the system and installed software. For example,
+                    network settings and user account configurations can be found here.</p>
+                <p><strong>/home</strong>: Contains the personal directories for regular users. Each user has a
+                    subdirectory within /home (e.g., /home/username) for storing personal files and settings. (macOS
+                    stores user home directories in /Users instead of /home)</p>
+                <p><strong>/var</strong>: Holds variable data files, including logs, temporary files, and spool
+                    directories (e.g., for print queues). This directory changes frequently as the system runs.</p>
+                <p><strong>/usr</strong>: Stands for Unix System Resources and contains most user-space applications and
+                    libraries. For example, /usr/bin holds non-essential programs and utilities like vim and python.</p>
+            </fieldset>
+
+            <p>The core directory structure is generally consistent across Linux distributions and macOS, adhering to
+                Unix-based conventions like /bin, /etc, and /usr. However, macOS includes unique directories like
+                /System and /Library, and the contents or usage of some directories can vary between systems. If you
+                ever need to explore their functions, consult the official documentation for your operating system or
+                search online for resources specific to your distribution or macOS version.</p>
+
+            <p>You may use the <span style="font-family: monospace;">tree</span> command to view the hierarchy to any
+                level of depth, or beginning from a subdirectory of our choice. For example, the following command shows
+                the tree upto depth 2. </p>
+            <pre class="language-shell-session"><code>$ tree -L 2 /</code></pre>
+            <p>A typical output: </p>
+            <pre class="language-shell-session"><code>
+/
+├── bin
+│   ├── bash
+│   ├── cat
+│   ├── cp
+│   ├── ls
+│   └── mkdir
+├── boot
+│   ├── config-5.15.0
+│   ├── grub
+│   └── vmlinuz-5.15.0
+├── dev
+├── etc
+│   ├── apache2
+│   ├── hosts
+│   ├── network
+│   └── passwd
+├── home
+│   └── user1
+├── lib
+│   ├── firmware
+│   ├── modules
+│   └── systemd
+├── lib64
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── srv
+├── sys
+├── tmp
+├── usr
+│   ├── bin
+│   ├── lib
+│   ├── local
+│   └── share
+└── var
+    ├── cache
+    ├── log
+    ├── spool
+    └── tmp
+
+20 directories, 10 files
+                </code></pre>
+            <p>Some level 2 contents may not be visible because certain directories, like /mnt or /media, are empty
+                unless populated (e.g., by mounting devices). Directories such as /proc and /sys contain virtual
+                filesystems and may not display traditional files. Additionally, permissions can restrict access to
+                directories like /root, requiring administrative privileges (sudo) to view their contents. If you wish
+                to see these files, then run:</p>
+
+            <pre class="language-shell-session"><code>$ sudo tree -L 2 /</code></pre>
+
+              <h4><span style="font-family: monospace;">sudo</span> (superuser do)</h4> 
+              <p> <span style="font-family: monospace;">sudo</span> allows a user to execute commands with
+                administrative privileges, such as installing software (<span style="font-family: monospace;">sudo apt
+                    install tree</span>), editing system files (<span style="font-family: monospace;">sudo nano
+                    /etc/hosts</span>), or viewing restricted directories (<span style="font-family: monospace;">sudo ls
+                    /root</span>).</p>
+
+            <h4>The home directory (~)</h4>
+            <p>As mentioned above, your home directory is the base location for your user-specific data. In Linux, it is
+                typically located at /home/your_username, while in macOS, it is located at /Users/your_username. The
+                home directory is represented by the tilde symbol (~) in shell environments. As a beginner, it is
+                important to understand the difference between the root directory (/), which is the top-level directory
+                of the entire file system, and the home directory (~), which is specific to your user. Execute the
+                following commands to view the contents of your home directory.</p>
+            <pre class="language-shell-session"><code>$ tree -L 1 ~</code></pre>
+
+             <br><fieldset>
                 <legend>Some terminology</legend>
 
                 <p><strong>File System</strong>: The organizational structure and method used by the operating system to
@@ -73,29 +249,30 @@
 
             </fieldset>
 
+            <h3>2. Navigating the hierarchy</h3>
+            <p>todo: intro...</p>
+            <p>todo...: different navigation commands and (interesting / useful) examples...</p>
 
 
-            <div class="double-shell">
-            <p>On Linux:</p> 
-            <pre class="language-shell-session"><code>$ echo "Hello World"</code></pre>
-            <p>On macOS:</p>
-            <pre class="language-shell-session"><code>% echo "Hello World"</code></pre>
+
+
+
+            <!-- <div class="double-shell">
+                <p>On Linux:</p>
+                <pre class="language-shell-session"><code>$ echo "Hello World"</code></pre>
+                <p>On macOS:</p>
+                <pre class="language-shell-session"><code>% echo "Hello World"</code></pre>
             </div>
+
             
-
-
-
-
-
-            <!--
             <fieldset>
                 <legend>Height of a rectangle</legend>
                 The height of a rectangle is the height of its shortest bar, which may be an internal or side bar.
             </fieldset>
-        -->
+        
 
 
-            <!--<div class="single-image-container">
+            <div class="single-image-container">
             <figure style="display: inline-block; margin: 10px; text-align: center;">
                 <img src="./img/LargeRectangles3a.png" width="500" height="500" />
                 <img src="./img/LargeRectangles3b.png" width="500" height="500" />
