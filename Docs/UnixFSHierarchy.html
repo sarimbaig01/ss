@@ -82,8 +82,7 @@
 
             <p>A typical output will look like this:</p>
 
-            <pre class="language-shell-session"><code>
-/
+            <pre class="language-shell-session"><code>/
 ├── bin
 ├── boot
 ├── dev
@@ -138,8 +137,7 @@
                 the tree upto depth 2. </p>
             <pre class="language-shell-session"><code>$ tree -L 2 /</code></pre>
             <p>A typical output: </p>
-            <pre class="language-shell-session"><code>
-/
+            <pre class="language-shell-session"><code>/
 ├── bin
 │   ├── bash
 │   ├── cat
@@ -194,8 +192,8 @@
 
             <pre class="language-shell-session"><code>$ sudo tree -L 2 /</code></pre>
 
-              <h4><span style="font-family: monospace;">sudo</span> (superuser do)</h4> 
-              <p> <span style="font-family: monospace;">sudo</span> allows a user to execute commands with
+            <h4><span style="font-family: monospace;">sudo</span> (superuser do)</h4>
+            <p> <span style="font-family: monospace;">sudo</span> allows a user to execute commands with
                 administrative privileges, such as installing software (<span style="font-family: monospace;">sudo apt
                     install tree</span>), editing system files (<span style="font-family: monospace;">sudo nano
                     /etc/hosts</span>), or viewing restricted directories (<span style="font-family: monospace;">sudo ls
@@ -210,7 +208,8 @@
                 following commands to view the contents of your home directory.</p>
             <pre class="language-shell-session"><code>$ tree -L 1 ~</code></pre>
 
-             <br><fieldset>
+            <br>
+            <fieldset>
                 <legend>Some terminology</legend>
 
                 <p><strong>File System</strong>: The organizational structure and method used by the operating system to
@@ -250,11 +249,43 @@
             </fieldset>
 
             <h3>2. Navigating the hierarchy</h3>
-            <p>todo: intro...</p>
+            <p> The first distinction to make when navigating the file system is one between <strong> absolute
+                </strong> and
+                <strong>relative</strong> paths. Absolute paths specify the full location of a file or directory
+                starting from the root
+                (/), while relative paths are defined in relation to your current directory. Recognizing this
+                difference is fundamental to effectively working within a file system.
+            </p>
+
+            <h4>View your working directory with <span style="font-family: monospace;">pwd</span></h4>
+
+            <p>Your current directory, also called your working directory, can be viewed by using the <span
+                    style="font-family: monospace;">pwd</span> (print working directory) command.</p>
+
+            <pre class="language-shell-session"><code>$ pwd</code></pre>
+
+            <p>The output of <span style="font-family: monospace;">pwd</span> is the absolute path to your working
+                directory.</p>
+
+            <p>Notice that an absolute path starts with /, indicating the root directory as its starting point.</p>
+
+            <p>Relative paths, on the other hand, begin with the name of a directory (or a special symbol like . for the
+                working directory or .. for the parent directory) and proceed relative to the working directory.
+            </p>
+
+            <p>For example, if your working directory is /home/user, the absolute path to a file named notes.txt
+                in the documents directory (which lies inside user) would be /home/user/documents/notes.txt, while the
+                relative path would be documents/notes.txt (note: no leading /).</p>
+            
+            <h4>Navigate to absolute or relative locations using <span style="font-family: monospace;">cd</span> </h4>
+            <p>todo: ... examples...</p>
+
+            <h4>View the contents of your working directory with <span style="font-family: monospace;">ls</span>
+            </h4>
+
+            <p>todo:... the options... </p>
+
             <p>todo...: different navigation commands and (interesting / useful) examples...</p>
-
-
-
 
 
             <!-- <div class="double-shell">
