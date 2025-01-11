@@ -24,6 +24,13 @@
 <body>
     <a href="https://sarimbaig01.github.io/ss/" class="back-link top-right">← Back</a>
 
+    <div class="toc">
+        <h5>Table of Contents</h5>
+        1. <a href="#inspect">Inspecting the hierarchy</a><br><br>
+        2. <a href="#navigate">Navigating the hierarchy</a><br><br>
+        3. <a href="#permissions">File listing and permissions</a><br><br>
+    </div>
+
     <div class="statement">
         <h1 class="align-with-statement"> Unix File System Hierarchy</h1>
         <section class="statement">
@@ -33,7 +40,7 @@
                 directory. To work effectively with these systems, especially when interacting through a shell, it is
                 essential to understand the file system hierarchy and related terminology. This article provides a
                 beginner-friendly introduction to the topic.</p>
-            <h3>1. Inspecting the hierarchy with <span style="font-family: monospace;">tree</span></h3>
+            <h3 id="inspect">1. Inspecting the hierarchy with <span style="font-family: monospace;">tree</span></h3>
             <p>It is useful to begin by inspecting the file system hierarchy on your system. This article assumes that
                 you are currently using either Linux (or WSL on Windows) or macOS. A good way to inspect the file system
                 hierarchy is by using the <span style="font-family: monospace;">tree</span> command. The <span
@@ -248,7 +255,8 @@
 
             </fieldset>
 
-            <h3>2. Navigating the hierarchy</h3>
+            <h3 id="navigate">2. Navigating the hierarchy</h3>
+
             <p> The first distinction to make when navigating the file system is one between <strong> absolute
                 </strong> and
                 <strong>relative</strong> paths. Absolute paths specify the full location of a file or directory
@@ -259,8 +267,9 @@
 
             <h4>View your working directory with <span style="font-family: monospace;">pwd</span></h4>
 
-            <p>Your current directory, also called your working directory, can be viewed by using the <span
-                    style="font-family: monospace;">pwd</span> (print working directory) command.</p>
+            <p>Your current directory, also called your <strong>working directory</strong>, can be viewed by using the
+                <span style="font-family: monospace;">pwd</span> (print working directory) command.
+            </p>
 
             <pre class="language-shell-session"><code>$ pwd</code></pre>
 
@@ -269,23 +278,157 @@
 
             <p>Notice that an absolute path starts with /, indicating the root directory as its starting point.</p>
 
-            <p>Relative paths, on the other hand, begin with the name of a directory (or a special symbol like . for the
-                working directory or .. for the parent directory) and proceed relative to the working directory.
+            <p>Relative paths, on the other hand, begin with the name of a directory (or a special symbol like
+                <strong>.</strong> for the
+                working directory or <strong>..</strong> for the parent directory) and proceed relative to the working
+                directory.
             </p>
 
             <p>For example, if your working directory is /home/user, the absolute path to a file named notes.txt
                 in the documents directory (which lies inside user) would be /home/user/documents/notes.txt, while the
                 relative path would be documents/notes.txt (note: no leading /).</p>
-            
+
             <h4>Navigate to absolute or relative locations using <span style="font-family: monospace;">cd</span> </h4>
-            <p>todo: ... examples...</p>
 
-            <h4>View the contents of your working directory with <span style="font-family: monospace;">ls</span>
-            </h4>
+            <p>Let us consider a simple directory structure to study directory creation and navigation.
+            <p>
+            <p>Consider this simple structure:</p>
+            <pre class="language-shell-session"><code>a
+├── b
+└── c
+    └── d</code></pre>
 
-            <p>todo:... the options... </p>
+            <p>Create this directory structure on your machine using the following commands:</p>
 
-            <p>todo...: different navigation commands and (interesting / useful) examples...</p>
+            <pre class="language-shell-session"><code>$ mkdir a
+$ cd a
+$ mkdir b
+$ mkdir c
+$ cd c
+$ mkdir d</code></pre>
+
+            <p>Equivalently, one could use the -p option to create the nested structure in a single command without
+                having to change the working directory in the process.</p>
+
+            <pre class="language-shell-session"><code>$ mkdir -p a/b a/c/d</code></pre>
+
+            <p>If you followed the first sequence of commands, your working directory is now c.</p>
+
+            <p>From c, the following command will take you the parent directory, a: </p>
+
+            <pre class="language-shell-session"><code>$ cd ..</code></pre>
+
+            <p>The working directory is now a. The following command will take you from a to d.</p>
+
+            <pre class="language-shell-session"><code>$ cd c/d</code></pre>
+
+            <p>And the following will take you from d to b.</p>
+
+            <pre class="language-shell-session"><code>$ cd ../../b</code></pre>
+
+            <p>What if we wish to go back to the previous working directory, which may not necessarily be the parent
+                directory, as in the case above where we went from d to b?</p>
+
+            <p>Use the following command to navigate back to the previous directory: </p>
+            <pre class="language-shell-session"><code>$ cd -</code></pre>
+
+            <h4>Navigating to absolute paths</h4>
+            <p>The <span style="font-family: monospace;">cd</span> command also accepts absolute paths (paths starting
+                with a /). The home directory has a special symbol associated with it, namely ~.</p>
+
+            <p>Navigate to your home directory and examine its contents:</p>
+            <pre class="language-shell-session"><code>$ cd ~
+$ ls</code></pre>
+            <p>Now try the -a option with <span style="font-family: monospace;">ls</span> to also see the hidden files.
+            </p>
+            <pre class="language-shell-session"><code>$ ls -a</code></pre>
+            <p>In Unix-based systems, <strong>hidden files</strong> are usually named beginning with a '.'. They are
+                typically used for
+                configuration and system purposes. </p>
+            <p>Now try the -l option, along with the -a option, to view files in the <strong>long listing
+                    format</strong>, which
+                provides detailed information about files and directories in the current directory.</p>
+            <pre class="language-shell-session"><code>$ ls -al</code></pre>
+            <p>A typical output looks something like the following: </p>
+            <pre class="language-shell-session"><code>-rw-------    1 sbaig staff      1690 Dec 31 16:13  .bash_history
+-rwxr--r--    1 sbaig staff        34 Dec 28 20:17  .bash_profile
+drwxr-xr-x    5 sbaig staff       160 Dec 16 17:49  .cache
+drwxr-xr-x   10 sbaig staff       320 Jun 12  2024  .docker</code></pre>
+
+            <h3 id="permissions">3. File listing and permissions</h3>
+            <p>The first column of this output indicates file permissions. Permissions in Unix-based systems are
+                represented by a 10-character string, with the first character indicating the file type (e.g., - for
+                regular files, d for directories). The remaining 9 characters are grouped into three sets of 3,
+                specifying read (r), write (w), and execute (x) permissions for the owner, group, and others, where
+                <strong>owner</strong> refers to the user who owns the file or directory, usually with the highest level
+                of access, <strong>group</strong> represents a set of users sharing specific permissions, and
+                <strong>others</strong> includes all remaining users on the system. These permissions control who can
+                access or modify the file or directory.
+            </p>
+
+            <p>For example, from the above listing, let's consider the line:
+                <code><strong>drwxr-xr-x    5 sbaig staff       160 Dec 16 17:49  .cache</strong></code>
+            </p>
+            <p>The following table summarizes the information encoded in the line, including the permissions entry: </p>
+
+            <table class="ref">
+                <tr>
+                    <th>Segment</th>
+                    <th>Value</th>
+                    <th>Explanation</th>
+                </tr>
+                <tr>
+                    <td>File Type & Permissions</td>
+                    <td>drwxr-xr-x</td>
+                    <td>Indicates this is a directory (d) with permissions:<br>- Owner: rwx (read, write, execute)<br>-
+                        Group: r-x (read, execute)<br>- Others: r-x (read, execute).</td>
+                </tr>
+                <tr>
+                    <td>Link Count</td>
+                    <td>5</td>
+                    <td>This directory has 5 connections in the file system. These include . (the directory itself), ..
+                        (its parent directory), and entries for its subdirectories. Each connection points to the same
+                        physical directory on disk.</td>
+                </tr>
+                <tr>
+                    <td>Owner</td>
+                    <td>sbaig</td>
+                    <td>The user sbaig owns this directory.</td>
+                </tr>
+                <tr>
+                    <td>Group</td>
+                    <td>staff</td>
+                    <td>The group staff is associated with this directory.</td>
+                </tr>
+                <tr>
+                    <td>Size</td>
+                    <td>160</td>
+                    <td>The directory entry takes up 160 bytes (this does not include the contents of the directory
+                        itself).</td>
+                </tr>
+                <tr>
+                    <td>Last Modified</td>
+                    <td>Dec 16 17:49</td>
+                    <td>Indicates the directory was last modified on December 16th at 17:49.</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>.cache</td>
+                    <td>The directory name is .cache, and the leading dot indicates it is hidden.</td>
+                </tr>
+            </table>
+
+            <h4>Modifying file permissions using <span style="font-family: monospace;">chmod</span></h4>
+
+            <p><span style="font-family: monospace;">chmod</span> (change mode) is used to change the permissions on a
+                file. If administrative rights are needed to modify the permissions of a system file or a file you do
+                not own,
+                you will need to use <span style="font-family: monospace;">sudo chmod</span>. For example, we might need
+                to do this when executing scripts, such as bash scripts.</p>
+            
+            <h4>Example use of <span style="font-family: monospace;">chmod</span>: Creating and executing a bash script</h4>
+            <p>TODO:...  vim / (show whole script to write: simple echo and shebang) / chmod u+x for a script with shebang etc.</p>
+            
 
 
             <!-- <div class="double-shell">

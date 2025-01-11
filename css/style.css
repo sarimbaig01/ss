@@ -253,33 +253,32 @@ fieldset {
 }
 
 .toc a {
-    display: block;
+    display: inline;
     /* Ensure each link takes up the full width and appears on its own line */
-    margin: 5px 0;
-    /* Add some margin for spacing between links */
+   
     text-decoration: underline;
     /* Underline the links */
     color: black;
     /* Set link color to black */
     position: relative;
     /* Enable positioning of pseudo-element */
-    padding-left: 20px;
+    padding-left: 2px;
     /* Reduce padding to bring text closer to bullet */
 }
 
 .toc a::before {
-    content: "•";
+    /*content: "•";*/
     /* Bullet point character */
     position: absolute;
     /* Position relative to the link */
-    left: 5px;
+    left: 0px;
     /* Adjust distance from the link text */
     color: black;
     /* Same color as the link text */
 }
 
 .toc a.sub-item {
-    padding-left: 40px;
+    padding-left: 0px;
     /* Indent sub-items more */
 }
 
