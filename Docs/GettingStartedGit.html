@@ -44,63 +44,123 @@
                 distribute
                 project starter code to students.</p>
 
-            <h3>Step 1. Create a GitHub account and install git</h3>
-            <p>There are two components involved in setting up Git. One component is that you must have an account on a
-                repository hosting service (that is, a website where you can put your code so your partner can access
-                it).
-                The repository hosting service we use in ELEC50014 is called GitHub. The other component is the Git
-                command
-                line tools, which allow you to interface with Git locally.</p>
-
-            <h4>Step 1a. Create a GitHub account (if you don't have one already)</h3>
-                <p>To sign up for a GitHub account, open GitHub.com in a browser and choose your username, imperial
-                    email,
-                    and password. Then, select the “free” plan, and then you will be taken to your homepage. Now, you
-                    need
-                    to verify your email account. Click on the tool icon in the top right corner to get to account
-                    settings,
-                    then select emails, and click the “verify” button next to your email address. Then, go to your email
-                    to
-                    confirm.C</p>
-                <p>Check if git is installed:</p>
+            <h3>Step 1. Install Git</h3>
+            
+                <p>Check if Git is already installed:</p>
 
                 <pre class="language-shell-session"><code>$ git --version</code></pre>
                 
-
-                <p>If you see a version number, git is already installed.</p>
-                <h4>Step 1b. Install git (if not already installed):</h4>
+                <p>If you see a version number, Git is already installed.</p>
+                <h4>Install Git (if not already installed):</h4>
                 <p>On Linux (Ubuntu / Debian): </p>
                 <pre class="language-shell-session"><code>$ sudo apt install git   <!-- Debian-based -->
 </code></pre>
                 <p>On macOS (you first need to install Homebrew if you don't have it already): </p>
                 <pre class="language-shell-session"><code>$ brew install git</code></pre>
-                <h3>Step 2. Configure Git to connect to GitHub using SSH</h3>
-                <p>We now need to configure Git to connect with our GitHub account, using the SSH protocol.</p>
+                
+                <!--
+                <h4>Step 2c. Configure Git to use SSH</h4>
+                <p>To configure Git to use SSH, follow these steps:</p>
+                <ol>
+                    <li>Update your repository's remote URL to use SSH by running the following command in the terminal:
+                        <pre
+                            class="language-shell-session"><code>$ git remote set-url origin git@github.com:username/repository.git</code></pre>
+                        <p>Replace <code>username</code> with your GitHub username and <code>repository</code> with the
+                            name
+                            of your repository.</p>
+                    </li>
+                    <li>Verify the updated remote URL by running:
+                        <pre class="language-shell-session"><code>$ git remote -v</code></pre>
+                    </li>
+                    <li>Ensure the output shows the SSH URL format, similar to this:
+                        <pre class="language-shell-session"><code>origin  git@github.com:username/repository.git (fetch)
+origin  git@github.com:username/repository.git (push)</code></pre>
+                    </li>
+                </ol>-->
 
-                <h4>Step 2a. Generate an SSH Key</h4>
-                <p>We can use either the SSH or HTTPS protocols to connect Git from our local machine to the remote
-                    GitHub
-                    server. Both protocols provide a secure connection. We will use SSH, as this will allow continued
-                    use
-                    without repeated authentication.</p>
+                <h3>Step 2. Create and populate a local Git repository</h3>
+                <p>Create a new directory for the repository:</p>
+                <pre class="language-shell-session"><code>$ mkdir hello-git
+$ cd hello-git
+</code></pre>
+                <p>At this point, we will begin using VS Code so that we can easily add and manage files in our repository.</p>
+                <pre class="language-shell-session"><code>$ Code .</code></pre>
+                <p>In VS Code open the terminal. Your working directory in this terminal inside VS Code is the same as your prospective repository folder.</p>
+                
+                <p>Initialize the git repository:</p>
+                <p>The following will create a repository in your current directory (hello-git in this case).</p>
+                <pre class="language-shell-session"><code>$ git init</code></pre>
+                <p><code>git init</code> initializes a local repository, allowing git to track changes made in the folder.</p>
 
-                <p>Generate the SSH key as follows. On the bash terminal, run:</p>
-                <pre class="language-shell-session"><code>$ ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
-                <p>When prompted:</p>
-                <ul>
-                    <li>Press <strong>Enter</strong> to save the key in the default location
-                        (<code>~/.ssh/id_ed25519</code>).</li>
-                    <li>Leave the paraphrase blank.</li>
-                </ul>
+                <!--<h3>Step 4 (Optional). Clone an existing repository</h3>
+                <p>For now, you may not need this step as you are creating your first repository. However, at some point
+                    you
+                    may need to clone a repository provided to you, or that you have created remotely on GitHub, onto
+                    your
+                    local machine.</p>
+                <p>Clone an existing repository:</p>
+                <pre class="language-shell-session"><code>$ git clone git@github.com:yourusername/repository-name.git</code></pre>
 
-                <p>After this, two files are created:</p>
-                <ul>
-                    <li><code>id_ed25519</code>: Your private key (keep this secure).</li>
-                    <li><code>id_ed25519.pub</code>: Your public key (this will be added to GitHub).</li>
-                </ul>
+                <p>Note: GitHub provides a URL for every repository, ending with .git. On GitHub you can find this URL
+                    by
+                    going to your repository page and clicking on the <code>Code</code> drop down menu.</p>
 
+                <p>Navigate into the cloned repository:</p>
+                <pre class="language-shell-session"><code>$ cd repository-name</code></pre>
+                <p>
+                    Overall, <<code>git clone</code> creates a <strong>copy of a remote repository</strong> on your
+                        local machine, making it ready for development.
+                </p>-->
 
-                <h4>Step 2b. Add the Public Key to GitHub</h4>
+                <p>Now let us add some files to this repository</p>
+                <p>Create a file: <code>helloworld.cpp</code> in VS Code.</p>
+
+                <div class="code-container" data-filename="/cpp/helloworld.cpp">
+                    <pre><code class="language-cpp" id="cpp-code">
+                </code></pre>
+                </div>
+
+                <p>At this point, you have a fully functional local Git repository. But for code sharing and collaboration, this local repository needs to be 'sent out' to a remote server. That server would be GitHub.</p>
+
+                <h3>Step 3. Create a GitHub account</h3>
+                <p>There are two components involved in setting up Git. One component is Git, as we have seen. The other component is a remote server. For this we create an account on
+                    a repository hosting service (that is, a website where you can put your code so your partner can access
+                    it).
+                    The repository hosting service we use is GitHub.</p>
+    
+                    <p>To sign up for a GitHub account, open GitHub.com in a browser and choose your username, imperial
+                        email,
+                        and password. Then, select the “free” plan, and then you will be taken to your homepage. Now, you
+                        need
+                        to verify your email account. Click on the tool icon in the top right corner to get to account
+                        settings,
+                        then select emails, and click the “verify” button next to your email address. Then, go to your email
+                        to
+                        confirm.</p>
+
+                
+                    <h3>Step 4. Connect to GitHub using SSH</h3>
+                        <p>We now need to connect our machine to GitHub so that we can host our repository there. For this we need to use the SSH protocol.</p>
+                        <p>SSH is a network protocol that allows machines to log into remote servers securely.</p>
+        
+                        <h4>Step 4a. Generate an SSH Key</h4>
+        
+                        <p>Generate the SSH key as follows. On the terminal, run:</p>
+                        <pre class="language-shell-session"><code>$ ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
+                        <p>When prompted:</p>
+                        <ul>
+                            <li>Press <strong>Enter</strong> to save the key in the default location
+                                (<code>~/.ssh/id_ed25519</code>).</li>
+                            <li>Leave the paraphrase blank.</li>
+                        </ul>
+        
+                        <p>After this, two files are created:</p>
+                        <ul>
+                            <li><code>id_ed25519</code>: Your private key (keep this secure).</li>
+                            <li><code>id_ed25519.pub</code>: Your public key (this will be added to GitHub).</li>
+                        </ul>
+
+                <h4>Step 4b. Add the Public Key to GitHub</h4>
 
                 <p>Follow these steps to add your SSH public key to GitHub:</p>
                 <ol>
@@ -135,82 +195,12 @@
                             class="language-shell-session"><code>Hi username! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
                     </li>
                 </ol>
-                <!--
-                <h4>Step 2c. Configure Git to use SSH</h4>
-                <p>To configure Git to use SSH, follow these steps:</p>
-                <ol>
-                    <li>Update your repository's remote URL to use SSH by running the following command in the terminal:
-                        <pre
-                            class="language-shell-session"><code>$ git remote set-url origin git@github.com:username/repository.git</code></pre>
-                        <p>Replace <code>username</code> with your GitHub username and <code>repository</code> with the
-                            name
-                            of your repository.</p>
-                    </li>
-                    <li>Verify the updated remote URL by running:
-                        <pre class="language-shell-session"><code>$ git remote -v</code></pre>
-                    </li>
-                    <li>Ensure the output shows the SSH URL format, similar to this:
-                        <pre class="language-shell-session"><code>origin  git@github.com:username/repository.git (fetch)
-origin  git@github.com:username/repository.git (push)</code></pre>
-                    </li>
-                </ol>-->
 
-                <h3>Step 3. Create a repository</h3>
-                <p>Create a new directory for the repository:</p>
-                <pre class="language-shell-session"><code>$ mkdir hello-git
-$ cd hello-git
-</code></pre>
+                <h3>Step 5. Host your local repository on GitHub</h3>
 
-                <p>Initialize the git repository:</p>
-                <p>The following will create a repository in your current directory (hello-git in this case).</p>
-                <pre class="language-shell-session"><code>$ git init</code></pre>
-                <p><code>git init</code> initializes a local repository, allowing git to
-                    track changes made in the folder.</p>
+                <p>TODO: ... create repo on GitHub... / stage and push the local repo, etc.</p>
 
-                <h3>Step 4 (Optional). Clone an existing repository</h3>
-                <p>For now, you may not need this step as you are creating your first repository. However, at some point
-                    you
-                    may need to clone a repository provided to you, or that you have created remotely on GitHub, onto
-                    your
-                    local machine.</p>
-                <p>Clone an existing repository:</p>
-                <pre class="language-shell-session"><code>$ git clone git@github.com:yourusername/repository-name.git</code></pre>
-
-                <p>Note: GitHub provides a URL for every repository, ending with .git. On GitHub you can find this URL
-                    by
-                    going to your repository page and clicking on the <code>Code</code> drop down menu.</p>
-
-                <p>Navigate into the cloned repository:</p>
-                <pre class="language-shell-session"><code>$ cd repository-name</code></pre>
-                <p>
-                    Overall, <<code>git clone</code> creates a <strong>copy of a remote repository</strong> on your
-                        local machine, making it ready for development.
-                </p>
-
-                <h3>Step 5. Open a local repository in VSCode</h3>
-                <p>Open the repository folder in VSCode:</p>
-                <p>Make sure you have navigated into the repository folder. Then execute:</p>
-                <pre class="language-shell-session"><code>$ code .</code></pre>
-                <p>This can also be done from within VSCode by selecting File > Open Folder... (choosing your repository
-                    folder)</p>
-                <p>From here on, you can open the shell from within VSCode by selecting Terminal > New Terminal...</p>
-                <p>This sets us up to use git from within VSCode, making code implementation and integration a seamless
-                    process.</p>
-                <p>Verify git integration:</p>
-                <ul>
-                    <li>VSCode automatically detects the repository if it’s initialized.</li>
-                    <li>Open the Source Control (Explorer) tab on the left sidebar.</li>
-                </ul>
-
-                <h3>Step 6. Example: Managing a C++ File</h3>
-                <p>Create a file: <code>helloworld.cpp</code> in VSCode (which is opened in your repository folder)</p>
-
-                <div class="code-container" data-filename="/cpp/helloworld.cpp">
-                    <pre><code class="language-cpp" id="cpp-code">
-                </code></pre>
-                </div>
-
-                <p>Stage the file:</p>
+                <!--<p>Stage the file:</p>
                 <pre class="language-shell-session"><code>$ git add helloworld.cpp</code></pre>
                 <p><code>git add</code> moves changes to the staging area, preparing them
                     for a commit.</p>
@@ -230,13 +220,13 @@ git commit -m "Updated message in helloworld.cpp"
                 <p>Push changes to remote repository:</p>
                 <pre class="language-shell-session"><code>$ git push origin main</code></pre>
                 <p><code>git push</code> uploads committed changes from the local
-                    repository to a remote repository.</p>
+                    repository to a remote repository.</p>-->
 
-                <h3>Step 7. Pull changes</h3>
+                <!--<h3>Step 7. Pull changes</h3>
                 <p>Pull latest changes from remote repository:</p>
                 <pre class="language-shell-session"><code>$ git pull origin main</code></pre>
                 <p><code>git pull</code> downloads and integrates updates from the remote
-                    repository into your local project.</p>
+                    repository into your local project.</p>-->
 
                 <h2>Basic Git Commands</h2>
                 <p>This is a summary of the basic Git commands you have seen above.</p>
