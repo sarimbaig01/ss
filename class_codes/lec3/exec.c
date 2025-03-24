@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     } else { // parent goes down this path (main)
         int wc = wait(NULL);
         printf("hello, I am parent of %d (wc:%d) (pid:%d)\n",
-               rc, wc, (int) getpid());
+               rc, wc, getpid());
     }
     return 0;
 }
