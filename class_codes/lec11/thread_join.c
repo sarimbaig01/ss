@@ -7,6 +7,15 @@ int done_t1 = 0;
 pthread_cond_t cond_t1 = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t lock_t1 = PTHREAD_MUTEX_INITIALIZER;
 
+void thread_join(){
+    pthread_mutex_lock(&lock_t1);
+    while(done_t1==0){
+        //wait until t1 signals
+        pthread_cond_wait(&cond_t1, &lock_t1);
+    }
+    pthread_mutex_unlock(&lock_t1);
+}
+
 void * t1(void * arg){
     printf("<t1>");
     //does work here...
@@ -26,12 +35,9 @@ void * t0(void * arg){
         perror("pthread_create failed");
         exit(1);
     }
-    pthread_mutex_lock(&lock_t1);
-    while(done_t1==0){
-        //wait until t1 signals
-        pthread_cond_wait(&cond_t1, &lock_t1);
-    }
-    pthread_mutex_unlock(&lock_t1);
+
+    thread_join();
+   
     printf("</t0>");
     return NULL;
 }
