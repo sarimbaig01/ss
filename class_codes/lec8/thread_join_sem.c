@@ -2,30 +2,30 @@
 #include <semaphore.h>
 #include <stdio.h>
 
-sem_t s;  // Unnamed semaphore (no pointer needed)
+sem_t s;  //unnamed semaphore
 
 void *child_thread_function(void *args) {
     printf("This is the child thread running...\n");
 
     printf("This is the child finished...\n");
-    sem_post(&s);  // Post to the semaphore
+    sem_post(&s);  //post to the semaphore
     return NULL;
 }
 
 int main() {
     printf("This is the parent thread running...\n");
 
-    // Initialize unnamed semaphore for use between threads (pshared = 0)
+    //initialize unnamed semaphore for use between threads (pshared = 0)
     sem_init(&s, 0, 0);
 
     pthread_t child_thread;
     pthread_create(&child_thread, NULL, child_thread_function, NULL);
 
     printf("Parent thread is now waiting for the child to finish...\n");
-    sem_wait(&s);  // Wait for child to post
+    sem_wait(&s);  //wait for child to post
     printf("Parent thread is done waiting...\n");
 
-    // Clean up semaphore
+    //clean up semaphore
     sem_destroy(&s);
     return 0;
 }
