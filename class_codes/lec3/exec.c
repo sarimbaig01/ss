@@ -17,5 +17,6 @@ int main() {
 
     } else { // parent
         printf("Parent (pid:%d)\n", getpid());
+        int rc = wait(NULL); //reap the child
     }
 }
