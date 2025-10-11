@@ -13,7 +13,7 @@ int main(){
 
     int * p = (int*)malloc(100);
 
-    printf(".text address:%p\n", (void*)main);
+    printf(".text address:%p\n", main);
 
     printf(".stack addresses:%p, %p, ...\n", &local1, &local2);
 
