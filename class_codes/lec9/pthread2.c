@@ -3,7 +3,7 @@
 
 int g_count = 0;
 
-void* counter()
+void* counter(void *arg)
 {
     for(int i = 0; i < 10000; i++){
         g_count++;
