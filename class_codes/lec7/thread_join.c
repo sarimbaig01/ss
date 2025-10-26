@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include <pthread.h>
-#include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 int done_t1 = 0;
@@ -16,33 +15,28 @@ void thread_join(){
     pthread_mutex_unlock(&lock_t1);
 }
 
-void * t1(void * arg){
-    printf("<t1>");
+void * worker(void * arg){
+    printf("<worker>");
     //does work here...
     pthread_mutex_lock(&lock_t1);
     done_t1 = 1;
-    printf("</t1>"); 
-    //signal to wake up t0
+    printf("</worker>"); 
+    //signal to wake up main
     pthread_cond_signal(&cond_t1);
     pthread_mutex_unlock(&lock_t1);
     return NULL;
 }
 
-void * t0(void * arg){
-    printf("<t0>");
-    pthread_t tid;
-    if(pthread_create(&tid, NULL, t1, NULL)!=0){
+int main(int argc, char ** argv){
+    printf("<main>");
+    pthread_t worker_tid;
+    if(pthread_create(&worker_tid, NULL, worker, NULL)!=0){
         perror("pthread_create failed");
         exit(1);
     }
 
     thread_join();
    
-    printf("</t0>");
-    return NULL;
-}
-
-int main(int argc, char ** argv){
-    t0(NULL);
+    printf("</main>");
     return 0;
 }
